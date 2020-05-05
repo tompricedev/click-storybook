@@ -18,7 +18,7 @@ export const UXSearchBlock = () => ({
     StoryCode,
     StoryCodeTabs,
     ModSearchBlock,
-    StoryUserGuide,
+		StoryUserGuide,		
   },
   template: `
 	<section>

@@ -13,8 +13,10 @@
   "dependencies": {
     "@pickra/copy-code-block": "^1.2.0",
     "@storybook/addon-storysource": "^5.3.18",
+    "codemirror": "^5.53.2",
     "js-beautify": "^1.11.0",
     "vue": "^2.6.11",
+    "vue-codemirror": "^4.0.6",
     "vuetify": "^2.2.11"
   },
   "devDependencies": {

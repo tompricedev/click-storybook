@@ -13,16 +13,23 @@
         </v-card>
       </v-tab-item>
     </v-tabs-items>
+		<StoryCodeEditor />
   </v-card>
 </template>
 
 <script>
+
+import StoryCodeEditor from './StoryCodeEditor';
+
 export default {
+	components: {
+		StoryCodeEditor
+	},
   data() {
     return {
       tab: null,
       items: [
-        { tab: "HTML", content: "HTML will go here" },
+        { tab: "HTML", content: "HTML" },
 				{ tab: "LESS", content: "Less will go here" },
         { tab: "JS", content: "JS will go here where applicable; greyed out if not used" },
       ],
