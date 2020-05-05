@@ -26,7 +26,7 @@ export const SearchBlock = () => ({
 			</story-preview-block>
 			<story-code-block>
 			<h3>Code:</h3>
-				<StoryCodeTabs />
+				Tab with HTML, CSS & JS to go here once built.
 			</story-code-block>
 		</story-container>
 	`,
