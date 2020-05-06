@@ -21,7 +21,7 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .flex-display {
   display: flex;
 }
