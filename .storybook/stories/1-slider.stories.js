@@ -12,6 +12,8 @@ export default {
   title: "Homepage Modules/Hero Unit",
 };
 
+/***** 01. UXUI Search Block *****/
+
 export const UXSearchBlock = () => ({
   name: "UXSearchBlock",
   components: {
@@ -301,7 +303,7 @@ export const UXSearchBlock = () => ({
 				},
 				{ 
 					tab: "JS", 
-					code: "" 
+					code: null 
 				},
 			]     
     };
@@ -315,7 +317,7 @@ export const UXSearchBlock = () => ({
 
 
 
-//***** 02. *****//
+//***** 02. Slider Subtle Text *****//
 
 export const SliderSubtleText = () => ({
   name: "SliderSubtleText",
@@ -786,7 +788,7 @@ rsResponsive()`
 	}
 });
 
-//***** 03. *****//
+//***** 03. Slider Pop Up *****//
 
 export const SliderPopUp = () => ({
   name: "SliderPopUp",
