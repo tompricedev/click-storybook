@@ -315,7 +315,20 @@ export const UXSearchBlock = () => ({
                 {
                   name: "html_homepage.tpl",
                   file: "html",
-                },
+								},
+								{
+									name: "search",
+									children: [
+										{
+											name: "home.html.twig",
+											file: "html"
+										},
+										{
+											name: "search.html.twig",
+											file: "html"
+										}
+									]
+								}
               ],
             },
             {
@@ -1245,7 +1258,7 @@ rsResponsive()`,
                 {
                   name: "sliders.tpl",
                   file: "html",
-                },
+								},								
               ],
             },
             {
@@ -1281,7 +1294,8 @@ rsResponsive()`,
               ],
             },
             {
-              name: "js-src",
+							name: "js-src",
+							children: []
             },
           ],
         },

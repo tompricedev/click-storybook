@@ -248,7 +248,7 @@ export default {
 @favourites: #e60584;
 
 // slider heights
-@slider-height: 60vh;
+@slider-height: 500px;
 @slider-min-height: 500px;
 @slider-height-tablet: 500px;
 @slider-min-height-tablet: 500px;
