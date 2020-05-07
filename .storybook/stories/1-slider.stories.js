@@ -363,13 +363,18 @@ export const UXSearchBlock = () => ({
               name: "js-src",
             },
           ],
-        },
-      ],
+				},							
+			],
+			userguide: {
+				type: "text",
+				content: "Mon the baggies"
+			}
     };
   },
   provide: function() {
     return {
-      items: this.items,
+			items: this.items,
+			userguide: this.userguide
     };
   },
 });
@@ -889,12 +894,17 @@ rsResponsive()`,
             },
           ],
         },
-      ],
+			],
+			userguide: {
+				type: "marquee",
+				content: "Why am I moving?"
+			}
     };
   },
   provide: function() {
     return {
       items: this.items,
+      userguide: this.userguide,
     };
   },
 });
@@ -1299,12 +1309,17 @@ rsResponsive()`,
             },
           ],
         },
-      ],
+			],
+			userguide: {
+				type: "marquee",
+				content: "Why am I moving?"
+			}
     };
   },
   provide: function() {
     return {
       items: this.items,
+      userguide: this.userguide,
     };
   },
 });
