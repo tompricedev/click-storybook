@@ -17,20 +17,20 @@ export default {
 export const UXSearchBlock = () => ({
   name: "UXSearchBlock",
   components: {
-    StoryBlock,	
+    StoryBlock,
     ModSearchBlock,
   },
-	template: `
+  template: `
 		<StoryBlock :items="items">
 			<ModSearchBlock />
 		</StoryBlock>
 	`,
-	data() {
+  data() {
     return {
-			items: [
-				{ 
-					tab: "HTML",
-					code: `<!-- Homepage Slider -->
+      items: [
+        {
+          tab: "HTML",
+          code: `<!-- Homepage Slider -->
 <div class="row-block hero-unit lazy-background">
 
 	<div class="hero-unit-block">
@@ -43,11 +43,11 @@ export const UXSearchBlock = () => ({
 	</div>
 
 </div>
-<!-- // Homepage Slider -->` 
-				},
-				{
-					tab: "LESS",
-					code: `.row-block.hero-unit {
+<!-- // Homepage Slider -->`,
+        },
+        {
+          tab: "LESS",
+          code: `.row-block.hero-unit {
 	position: relative;
 	.flex-display(@display: flex);
 	.align-items(@align: center);
@@ -299,43 +299,87 @@ export const UXSearchBlock = () => ({
 			background-color: @primary-colour;
 		}
 	}
-}`
-				},
-				{ 
-					tab: "JS", 
-					code: null 
-				},
-			]     
+}`,
+        },
+        {
+          tab: "JS",
+          code: null,
+        },
+        {
+          tab: "Files",
+          code: null,
+          folders: [
+            {
+              name: "templates",
+              children: [
+                {
+                  name: "html_homepage.tpl",
+                  file: "html",
+                },
+              ],
+            },
+            {
+              name: "css-src",
+              children: [
+                {
+                  name: "less",
+                  children: [
+                    {
+                      name: "hero-unit.less",
+                      file: "css",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "img-src",
+              children: [
+                {
+                  name: "theme",
+                  children: [
+                    {
+                      name: "hero-unit__bg.less",
+                      file: "png",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "js-src",
+            },
+          ],
+        },
+      ],
     };
-	},
-	provide: function() {
-		return {
-			items: this.items
-		}
-	}
+  },
+  provide: function() {
+    return {
+      items: this.items,
+    };
+  },
 });
-
-
 
 //***** 02. Slider Subtle Text *****//
 
 export const SliderSubtleText = () => ({
   name: "SliderSubtleText",
   components: {
-    StoryBlock,	
+    StoryBlock,
     ModSubtleText,
   },
-	template: `
+  template: `
 		<StoryBlock :items="items">
 			<ModSubtleText />
 		</StoryBlock>
 	`,
-	data() {
+  data() {
     return {
-			items: [
-				{ 
-					tab: "HTML",
-					code: `<!-- Slide 1 -->
+      items: [
+        {
+          tab: "HTML",
+          code: `<!-- Slide 1 -->
 <div class="rsContent slide1 lazy-background">
 	<div class="wrapper">
 		<div class="container">
@@ -397,11 +441,11 @@ export const SliderSubtleText = () => ({
 		</div>
 	</div>
 </div>
-<!-- // END Slide 4 -->` 
-				},
-				{
-					tab: "LESS",
-					code: `/* Slider Row Block */
+<!-- // END Slide 4 -->`,
+        },
+        {
+          tab: "LESS",
+          code: `/* Slider Row Block */
 .row-block.slider {
 	background: white !important;	
 
@@ -734,11 +778,11 @@ export const SliderSubtleText = () => ({
 		background: @accent-colour;
 	}
 
-}`
-				},
-				{ 
-					tab: "JS", 
-					code: `function rsResponsive() {
+}`,
+        },
+        {
+          tab: "JS",
+          code: `function rsResponsive() {
 	var slider = $('#responsive-slider-with-blocks-1');
 	slider.royalSlider({
 		arrowsNav: false,
@@ -776,16 +820,70 @@ export const SliderSubtleText = () => ({
 		});
 	}
 }
-rsResponsive()` 
-				},
-			]     
+rsResponsive()`,
+        },
+        {
+          tab: "Files",
+          code: null,
+          folders: [
+            {
+              name: "templates",
+              children: [
+                {
+                  name: "slider_responsive_full_width.tpl",
+                  file: "html",
+                },
+                {
+                  name: "sliders.tpl",
+                  file: "html",
+                },
+              ],
+            },
+            {
+              name: "css-src",
+              children: [
+                {
+                  name: "less",
+                  children: [
+                    {
+                      name: "slider.less",
+                      file: "css",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "img-src",
+              children: [
+                {
+                  name: "theme",
+                  children: [
+                    {
+                      name: "slider__bg.less",
+                      file: "png",
+                    },
+                    {
+                      name: "slider__bg--mobile.less",
+                      file: "png",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "js-src",
+            },
+          ],
+        },
+      ],
     };
-	},
-	provide: function() {
-		return {
-			items: this.items
-		}
-	}
+  },
+  provide: function() {
+    return {
+      items: this.items,
+    };
+  },
 });
 
 //***** 03. Slider Pop Up *****//
@@ -793,20 +891,20 @@ rsResponsive()`
 export const SliderPopUp = () => ({
   name: "SliderPopUp",
   components: {
-    StoryBlock,	
+    StoryBlock,
     ModPopUp,
   },
-	template: `
+  template: `
 		<StoryBlock :items="items">
 			<ModPopUp />
 		</StoryBlock>
 	`,
-	data() {
+  data() {
     return {
-			items: [
-				{ 
-					tab: "HTML",
-					code: `<div class="rsContent slide1 lazy-background">
+      items: [
+        {
+          tab: "HTML",
+          code: `<div class="rsContent slide1 lazy-background">
 <div class="slider-text">
 	<div class="slider-block">
 		<div class="container">
@@ -870,11 +968,11 @@ export const SliderPopUp = () => ({
 		</div>
 	</div>
 </div>
-</div>` 
-				},
-				{
-					tab: "LESS",
-					code: `.row-block.slider {
+</div>`,
+        },
+        {
+          tab: "LESS",
+          code: `.row-block.slider {
 		background: white !important;
 	}
 	
@@ -1089,11 +1187,11 @@ export const SliderPopUp = () => ({
 			}
 		}
 	
-	} // end slider-with-blocks`
-				},
-				{ 
-					tab: "JS", 
-					code: `function rsResponsive() {
+	} // end slider-with-blocks`,
+        },
+        {
+          tab: "JS",
+          code: `function rsResponsive() {
 var slider = $('#responsive-slider-with-blocks-1');
 slider.royalSlider({
 	arrowsNav: false,
@@ -1131,14 +1229,68 @@ if (slider.data('royalSlider')) {
 	});
 }
 }				
-rsResponsive()` 
+rsResponsive()`,
 				},
-			]     
+				{
+          tab: "Files",
+          code: null,
+          folders: [
+            {
+              name: "templates",
+              children: [
+                {
+                  name: "slider_responsive_full_width.tpl",
+                  file: "html",
+                },
+                {
+                  name: "sliders.tpl",
+                  file: "html",
+                },
+              ],
+            },
+            {
+              name: "css-src",
+              children: [
+                {
+                  name: "less",
+                  children: [
+                    {
+                      name: "slider.less",
+                      file: "css",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "img-src",
+              children: [
+                {
+                  name: "theme",
+                  children: [
+                    {
+                      name: "slider__bg.less",
+                      file: "png",
+                    },
+                    {
+                      name: "slider__bg--mobile.less",
+                      file: "png",
+                    },
+                  ],
+                },
+              ],
+            },
+            {
+              name: "js-src",
+            },
+          ],
+        },
+      ],
     };
-	},
-	provide: function() {
-		return {
-			items: this.items
-		}
-	}
+  },
+  provide: function() {
+    return {
+      items: this.items,
+    };
+  },
 });

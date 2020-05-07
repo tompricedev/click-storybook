@@ -303,6 +303,10 @@ export const MakeAndModel = () => ({
 					tab: "JS", 
 					code: "" 
 				},
+				{
+					tab: "files",
+					code: "",
+				}
 			]     
     };
 	},
