@@ -9,21 +9,21 @@ import StoryBlock from "./Components/StoryBlock";
 import ModMakeAndModel from "./Modules/ModMakeAndModel";
 
 export default {
-  title: "Homepage Modules/Search",
+  title: "Homepage Modules/Budget Search",
 };
 
 
-/***** 01. Make & Model *****/
+/***** 01. Slider Only *****/
 
-export const MakeAndModel = () => ({
-  name: "MakeAndModel",
+export const SliderOnly = () => ({
+  name: "SliderOnly",
   components: {
     StoryBlock,
     ModMakeAndModel,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<ModMakeAndModel />
+			<p>Slider only preview</p>
 		</StoryBlock>
 	`,
   data() {
@@ -53,17 +53,17 @@ export const MakeAndModel = () => ({
   },
 });
 
-/***** 02. Brands *****/
+/***** 02. Slider with car *****/
 
-export const Brands = () => ({
-  name: "Brands",
+export const SliderWithCar = () => ({
+  name: "SliderWithCar",
   components: {
     StoryBlock,
     ModMakeAndModel,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Brand search preview here</p>
+			<p>Slider & car preview here</p>
 		</StoryBlock>
 	`,
   data() {
@@ -93,17 +93,17 @@ export const Brands = () => ({
   },
 });
 
-/***** 03. Body type *****/
+/***** 03. Slider with budgets *****/
 
-export const BodyType = () => ({
-  name: "BodyType",
+export const SliderWithBudgets = () => ({
+  name: "SliderWithBudgets",
   components: {
     StoryBlock,
     ModMakeAndModel,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Body type search preview here</p>
+			<p>Slider with budgets search preview here</p>
 		</StoryBlock>
 	`,
   data() {
