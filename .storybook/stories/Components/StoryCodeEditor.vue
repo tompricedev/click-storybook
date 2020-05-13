@@ -1,6 +1,8 @@
 <template>
   <codemirror
     ref="cmEditor"
+		:item="this.item"
+		:code="this.code"
     :value="code"
     :options="cmOptions"	
     
@@ -23,12 +25,16 @@ export default {
         theme: "dracula",
         lineNumbers: true,
 				line: true,  
-      },
+			},
     };
 	},
 	props: {
-		code: String
+		item: Object,
+		code: String,
+		module: Number
 	},
-	inject: ['items']
+	mounted() {
+		console.log(`code editor: ${this.code}, ${this.item}`)
+	}
 };
 </script>

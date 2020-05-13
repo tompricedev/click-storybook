@@ -4,9 +4,9 @@
 			<slot></slot>
 		</StoryPreview>
 		<StoryCode>
-			<StoryCodeTabs />
+			<StoryCodeTabs :items="items" :module="module" />
 		</StoryCode>
-		<StoryUserGuide />
+		<!-- <StoryUserGuide /> -->
 	</section>
 </template>
 
@@ -25,6 +25,13 @@ export default {
     StoryCodeTabs,
     StoryCodeEditor,
 		StoryUserGuide,		
+	},
+	props: {
+		items: Array,
+		module: Number
+	},
+	mounted() {
+		console.log(`story block: ${this.items}, ${this.module}`)
 	},
 }
 </script>

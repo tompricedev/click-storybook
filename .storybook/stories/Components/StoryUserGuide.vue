@@ -13,6 +13,13 @@
 
 <script>
 export default {
-	inject: ['userguide'],
+	data() {
+		return {
+			userguide: {
+				type: 'Text',
+				content: 'A userguide here'
+			}
+		}
+	}
 }
 </script>
