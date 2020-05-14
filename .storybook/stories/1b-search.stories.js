@@ -30,7 +30,7 @@ export const MakeAndModel = () => ({
     return {
       items: [],
       userguide: {
-        type: "marquee",
+        type: "text",
         content: "Why am I moving?",
       },
       module: 3,
@@ -42,11 +42,7 @@ export const MakeAndModel = () => ({
         "https://eu-west-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/clickcomponents-uwksb/service/getModules/incoming_webhook/webhook0"
       )
       .then((response) => {        
-        // this.$set(
-        //   this.items,
-        //   this.module,
-        //   response.data[0].modules[this.module].items
-				// );
+        
 				this.items = response.data[0].modules[this.module].items
         console.log(this.items, this.module);
       });
@@ -70,7 +66,7 @@ export const Brands = () => ({
     return {
       items: [],
       userguide: {
-        type: "marquee",
+        type: "text",
         content: "Why am I moving?",
       },
       module: 4,
@@ -82,11 +78,7 @@ export const Brands = () => ({
         "https://eu-west-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/clickcomponents-uwksb/service/getModules/incoming_webhook/webhook0"
       )
       .then((response) => {        
-        // this.$set(
-        //   this.items,
-        //   this.module,
-        //   response.data[0].modules[this.module].items
-				// );
+        
 				this.items = response.data[0].modules[this.module].items
         console.log(this.items, this.module);
       });
@@ -110,7 +102,7 @@ export const BodyType = () => ({
     return {
       items: [],
       userguide: {
-        type: "marquee",
+        type: "text",
         content: "Why am I moving?",
       },
       module: 5,
@@ -122,11 +114,7 @@ export const BodyType = () => ({
         "https://eu-west-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/clickcomponents-uwksb/service/getModules/incoming_webhook/webhook0"
       )
       .then((response) => {        
-        // this.$set(
-        //   this.items,
-        //   this.module,
-        //   response.data[0].modules[this.module].items
-				// );
+        
 				this.items = response.data[0].modules[this.module].items
         console.log(this.items, this.module);
       });

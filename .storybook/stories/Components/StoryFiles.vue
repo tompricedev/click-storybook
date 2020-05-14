@@ -24,7 +24,7 @@ export default {
 		folders: Array
 	},
   data: () => ({
-    open: ["templates"],
+    open: [],
     files: {
       html: "mdi-language-html5",
       css: "mdi-language-css3",
@@ -37,6 +37,9 @@ export default {
       xls: "mdi-file-excel",
     },
 		tree: [],		
-  }),
+	}),
+	mounted() {
+		console.log('folders: ' + this.folders)
+	}
 };
 </script>

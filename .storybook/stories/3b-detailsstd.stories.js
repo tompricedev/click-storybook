@@ -9,28 +9,27 @@ import StoryBlock from "./Components/StoryBlock";
 import ModMakeAndModel from "./Modules/ModMakeAndModel";
 
 export default {
-  title: "Homepage Modules/Promotions",
+  title: "Details/Standard",
 };
 
+/***** 02. DetailsDescriptionText *****/
 
-/***** 01. Full Width *****/
-
-export const FullWidth = () => ({
-  name: "FullWidth",
+export const DetailsDescriptionText = () => ({
+  name: "DetailsDescriptionText",
   components: {
     StoryBlock,
     ModMakeAndModel,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Full width banner</p>
+			<p>DetailsDescriptionText preview</p>
 		</StoryBlock>
 	`,
   data() {
     return {
       items: [],
       userguide: {
-        type: "marquee",
+        type: "text",
         content: "Why am I moving?",
       },
       module: 9,
@@ -42,38 +41,33 @@ export const FullWidth = () => ({
         "https://eu-west-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/clickcomponents-uwksb/service/getModules/incoming_webhook/webhook0"
       )
       .then((response) => {        
-        // this.$set(
-        //   this.items,
-        //   this.module,
-        //   response.data[0].modules[this.module].items
-				// );
+        
 				this.items = response.data[0].modules[this.module].items
         console.log(this.items, this.module);
       });
   },
 });
+/***** 01. DetailsAccordion *****/
 
-/***** 01. Twin Banner *****/
-
-export const TwinBanner = () => ({
-  name: "TwinBanner",
+export const DetailsAccordion = () => ({
+  name: "DetailsAccordion",
   components: {
     StoryBlock,
     ModMakeAndModel,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Twin banner</p>
+			<p>DetailsAccordion preview</p>
 		</StoryBlock>
 	`,
   data() {
     return {
       items: [],
       userguide: {
-        type: "marquee",
+        type: "text",
         content: "Why am I moving?",
       },
-      module: 10,
+      module: 9,
     };
   },
   created() {
@@ -82,14 +76,9 @@ export const TwinBanner = () => ({
         "https://eu-west-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/clickcomponents-uwksb/service/getModules/incoming_webhook/webhook0"
       )
       .then((response) => {        
-        // this.$set(
-        //   this.items,
-        //   this.module,
-        //   response.data[0].modules[this.module].items
-				// );
+        
 				this.items = response.data[0].modules[this.module].items
         console.log(this.items, this.module);
       });
   },
 });
-

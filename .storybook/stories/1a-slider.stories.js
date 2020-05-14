@@ -6,34 +6,35 @@ import axios from "axios";
 import StoryBlock from "./Components/StoryBlock";
 
 /* Module imports for previews */
-import ModMakeAndModel from "./Modules/ModMakeAndModel";
+import ModSearchBlock from "./Modules/ModSearchBlock";
+import ModSubtleText from "./Modules/ModSubtleText";
+import ModPopUp from "./Modules/ModPopUp";
 
 export default {
-  title: "Homepage Modules/Picks Carousel",
+  title: "Homepage Modules/Hero Unit",
 };
 
+/***** 01. UXUI Search Block *****/
 
-/***** 01. MMP *****/
-
-export const MakeModelPrice = () => ({
-  name: "MakeModelPrice",
+export const UXSearchBlock = () => ({
+  name: "UXSearchBlock",
   components: {
     StoryBlock,
-    ModMakeAndModel,
+    ModSearchBlock,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Make model price preview</p>
+			<ModSearchBlock />
 		</StoryBlock>
 	`,
   data() {
     return {
       items: [],
       userguide: {
-        type: "marquee",
+        type: "text",
         content: "Why am I moving?",
       },
-      module: 6,
+      module: 0,
     };
   },
   created() {
@@ -41,39 +42,34 @@ export const MakeModelPrice = () => ({
       .get(
         "https://eu-west-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/clickcomponents-uwksb/service/getModules/incoming_webhook/webhook0"
       )
-      .then((response) => {        
-        // this.$set(
-        //   this.items,
-        //   this.module,
-        //   response.data[0].modules[this.module].items
-				// );
-				this.items = response.data[0].modules[this.module].items
+      .then((response) => {
+        this.items = response.data[0].modules[this.module].items;
         console.log(this.items, this.module);
       });
   },
 });
 
-/***** 02. Additional Info *****/
+//***** 02. Slider Subtle Text *****//
 
-export const AdditionalInfo = () => ({
-  name: "AdditionalInfo",
+export const SliderSubtleText = () => ({
+  name: "SliderSubtleText",
   components: {
     StoryBlock,
-    ModMakeAndModel,
+    ModSubtleText,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Additional info</p>
+			<ModSubtleText />
 		</StoryBlock>
 	`,
   data() {
     return {
       items: [],
       userguide: {
-        type: "marquee",
+        type: "text",
         content: "Why am I moving?",
       },
-      module: 7,
+      module: 1,
     };
   },
   created() {
@@ -81,53 +77,44 @@ export const AdditionalInfo = () => ({
       .get(
         "https://eu-west-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/clickcomponents-uwksb/service/getModules/incoming_webhook/webhook0"
       )
-      .then((response) => {        
-        // this.$set(
-        //   this.items,
-        //   this.module,
-        //   response.data[0].modules[this.module].items
-				// );
-				this.items = response.data[0].modules[this.module].items
+      .then((response) => {
+        this.items = response.data[0].modules[this.module].items;
         console.log(this.items, this.module);
       });
   },
 });
 
-/***** 03. Show Finance *****/
+//***** 03. Slider Pop Up *****//
 
-export const ShowFinance = () => ({
-  name: "ShowFinance",
+export const SliderPopUp = () => ({
+  name: "SliderPopUp",
   components: {
     StoryBlock,
-    ModMakeAndModel,
+    ModPopUp,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Finance price</p>
+			<ModPopUp />
 		</StoryBlock>
 	`,
   data() {
     return {
       items: [],
       userguide: {
-        type: "marquee",
+        type: "text",
         content: "Why am I moving?",
       },
-      module: 7,
+      module: 2,
     };
   },
   created() {
+    var self = this;
     axios
       .get(
         "https://eu-west-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/clickcomponents-uwksb/service/getModules/incoming_webhook/webhook0"
       )
-      .then((response) => {        
-        // this.$set(
-        //   this.items,
-        //   this.module,
-        //   response.data[0].modules[this.module].items
-				// );
-				this.items = response.data[0].modules[this.module].items
+      .then((response) => {
+        this.items = response.data[0].modules[this.module].items;
         console.log(this.items, this.module);
       });
   },

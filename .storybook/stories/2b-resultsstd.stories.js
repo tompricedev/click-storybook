@@ -9,31 +9,30 @@ import StoryBlock from "./Components/StoryBlock";
 import ModMakeAndModel from "./Modules/ModMakeAndModel";
 
 export default {
-  title: "Homepage Modules/Reviews",
+  title: "Results/Standard",
 };
 
+/***** 01. KSPs *****/
 
-/***** 01. InternalStatic *****/
-
-export const InternalStatic = () => ({
-  name: "InternalStatic",
+export const KeySellingPoints = () => ({
+  name: "KeySellingPoints",
   components: {
     StoryBlock,
     ModMakeAndModel,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Internal static reviews</p>
+			<p>KeySellingPoints preview</p>
 		</StoryBlock>
 	`,
   data() {
     return {
       items: [],
       userguide: {
-        type: "marquee",
+        type: "text",
         content: "Why am I moving?",
       },
-      module: 11,
+      module: 9,
     };
   },
   created() {
@@ -42,38 +41,33 @@ export const InternalStatic = () => ({
         "https://eu-west-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/clickcomponents-uwksb/service/getModules/incoming_webhook/webhook0"
       )
       .then((response) => {        
-        // this.$set(
-        //   this.items,
-        //   this.module,
-        //   response.data[0].modules[this.module].items
-				// );
+        
 				this.items = response.data[0].modules[this.module].items
         console.log(this.items, this.module);
       });
   },
 });
 
-/***** 01. InternalCarousel *****/
-
-export const InternalCarousel = () => ({
-  name: "InternalCarousel",
+/***** 02. DescriptionText *****/
+export const DescriptionText = () => ({
+  name: "DescriptionText",
   components: {
     StoryBlock,
     ModMakeAndModel,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Internal carousel</p>
+			<p>UX FullWidth preview</p>
 		</StoryBlock>
 	`,
   data() {
     return {
       items: [],
       userguide: {
-        type: "marquee",
+        type: "text",
         content: "Why am I moving?",
       },
-      module: 12,
+      module: 9,
     };
   },
   created() {
@@ -82,14 +76,9 @@ export const InternalCarousel = () => ({
         "https://eu-west-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/clickcomponents-uwksb/service/getModules/incoming_webhook/webhook0"
       )
       .then((response) => {        
-        // this.$set(
-        //   this.items,
-        //   this.module,
-        //   response.data[0].modules[this.module].items
-				// );
+        
 				this.items = response.data[0].modules[this.module].items
         console.log(this.items, this.module);
       });
   },
 });
-

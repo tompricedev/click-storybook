@@ -6,7 +6,7 @@
 		<StoryCode>
 			<StoryCodeTabs :items="items" :module="module" />
 		</StoryCode>
-		<!-- <StoryUserGuide /> -->
+		<StoryUserGuide />
 	</section>
 </template>
 

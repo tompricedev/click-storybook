@@ -6,35 +6,34 @@ import axios from "axios";
 import StoryBlock from "./Components/StoryBlock";
 
 /* Module imports for previews */
-import ModSearchBlock from "./Modules/ModSearchBlock";
-import ModSubtleText from "./Modules/ModSubtleText";
-import ModPopUp from "./Modules/ModPopUp";
+import ModMakeAndModel from "./Modules/ModMakeAndModel";
 
 export default {
-  title: "Homepage Modules/Hero Unit",
+  title: "Homepage Modules/Picks Carousel",
 };
 
-/***** 01. UXUI Search Block *****/
 
-export const UXSearchBlock = () => ({
-  name: "UXSearchBlock",
+/***** 01. MMP *****/
+
+export const MakeModelPrice = () => ({
+  name: "MakeModelPrice",
   components: {
     StoryBlock,
-    ModSearchBlock,
+    ModMakeAndModel,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<ModSearchBlock />
+			<p>Make model price preview</p>
 		</StoryBlock>
 	`,
   data() {
     return {
       items: [],
       userguide: {
-        type: "marquee",
+        type: "text",
         content: "Why am I moving?",
       },
-      module: 0,
+      module: 6,
     };
   },
   created() {
@@ -43,38 +42,34 @@ export const UXSearchBlock = () => ({
         "https://eu-west-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/clickcomponents-uwksb/service/getModules/incoming_webhook/webhook0"
       )
       .then((response) => {        
-        // this.$set(
-        //   this.items,
-        //   this.module,
-        //   response.data[0].modules[this.module].items
-				// );
+        
 				this.items = response.data[0].modules[this.module].items
         console.log(this.items, this.module);
       });
   },
 });
 
-//***** 02. Slider Subtle Text *****//
+/***** 02. Additional Info *****/
 
-export const SliderSubtleText = () => ({
-  name: "SliderSubtleText",
+export const AdditionalInfo = () => ({
+  name: "AdditionalInfo",
   components: {
     StoryBlock,
-    ModSubtleText,
+    ModMakeAndModel,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<ModSubtleText />
+			<p>Additional info</p>
 		</StoryBlock>
 	`,
   data() {
     return {
       items: [],
       userguide: {
-        type: "marquee",
+        type: "text",
         content: "Why am I moving?",
       },
-      module: 1,
+      module: 7,
     };
   },
   created() {
@@ -83,52 +78,43 @@ export const SliderSubtleText = () => ({
         "https://eu-west-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/clickcomponents-uwksb/service/getModules/incoming_webhook/webhook0"
       )
       .then((response) => {        
-        // this.$set(
-        //   this.items,
-        //   this.module,
-        //   response.data[0].modules[this.module].items
-				// );
+        
 				this.items = response.data[0].modules[this.module].items
         console.log(this.items, this.module);
       });
   },
 });
 
-//***** 03. Slider Pop Up *****//
+/***** 03. Show Finance *****/
 
-export const SliderPopUp = () => ({
-  name: "SliderPopUp",
+export const ShowFinance = () => ({
+  name: "ShowFinance",
   components: {
     StoryBlock,
-    ModPopUp,
+    ModMakeAndModel,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<ModPopUp />
+			<p>Finance price</p>
 		</StoryBlock>
 	`,
   data() {
     return {
       items: [],
       userguide: {
-        type: "marquee",
+        type: "text",
         content: "Why am I moving?",
       },
-      module: 2,
+      module: 7,
     };
   },
   created() {
-    var self = this;
     axios
       .get(
         "https://eu-west-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/clickcomponents-uwksb/service/getModules/incoming_webhook/webhook0"
       )
-      .then((response) => {
-        // this.$set(
-        //   this.items,
-        //   this.module,
-        //   response.data[0].modules[this.module].items
-				// );
+      .then((response) => {        
+        
 				this.items = response.data[0].modules[this.module].items
         console.log(this.items, this.module);
       });

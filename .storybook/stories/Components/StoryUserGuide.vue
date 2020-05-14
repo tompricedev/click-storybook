@@ -5,7 +5,7 @@
 		</v-card-title>
 		<v-card-text :userguide="userguide">
 			<p v-if="userguide.type == 'text'">{{ userguide.content }}</p>
-			<marquee v-else>It's not text man</marquee>
+			<p v-else>It's not text man</p>
 		</v-card-text>
 		<slot></slot>
 	</v-card>
