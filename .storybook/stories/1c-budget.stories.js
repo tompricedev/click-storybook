@@ -6,7 +6,9 @@ import axios from "axios";
 import StoryBlock from "./Components/StoryBlock";
 
 /* Module imports for previews */
-import ModMakeAndModel from "./Modules/ModMakeAndModel";
+import ModSliderOnly from "./Modules/ModSliderOnly";
+import ModSliderCar from "./Modules/ModSliderCar";
+import ModSliderBudgets from "./Modules/ModSliderBudgets";
 
 export default {
   title: "Homepage Modules/Budget Search",
@@ -19,11 +21,11 @@ export const SliderOnly = () => ({
   name: "SliderOnly",
   components: {
     StoryBlock,
-    ModMakeAndModel,
+    ModSliderOnly,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Slider only preview</p>
+			<ModSliderOnly />
 		</StoryBlock>
 	`,
   data() {
@@ -54,12 +56,12 @@ export const SliderOnly = () => ({
 export const SliderWithCar = () => ({
   name: "SliderWithCar",
   components: {
-    StoryBlock,
-    ModMakeAndModel,
+		StoryBlock,
+		ModSliderCar
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Slider & car preview here</p>
+			<ModSliderCar />
 		</StoryBlock>
 	`,
   data() {
@@ -90,12 +92,12 @@ export const SliderWithCar = () => ({
 export const SliderWithBudgets = () => ({
   name: "SliderWithBudgets",
   components: {
-    StoryBlock,
-    ModMakeAndModel,
+		StoryBlock,
+		ModSliderBudgets
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Slider with budgets search preview here</p>
+			<ModSliderBudgets />
 		</StoryBlock>
 	`,
   data() {
@@ -120,3 +122,4 @@ export const SliderWithBudgets = () => ({
       });
   },
 });
+

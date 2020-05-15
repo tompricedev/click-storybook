@@ -7,6 +7,8 @@ import StoryBlock from "./Components/StoryBlock";
 
 /* Module imports for previews */
 import ModMakeAndModel from "./Modules/ModMakeAndModel";
+import ModBrands from "./Modules/ModBrands";
+import ModBodyType from "./Modules/ModBodyType";
 
 export default {
   title: "Homepage Modules/Search",
@@ -55,11 +57,11 @@ export const Brands = () => ({
   name: "Brands",
   components: {
     StoryBlock,
-    ModMakeAndModel,
+    ModBrands,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Brand search preview here</p>
+			<ModBrands />
 		</StoryBlock>
 	`,
   data() {
@@ -91,11 +93,11 @@ export const BodyType = () => ({
   name: "BodyType",
   components: {
     StoryBlock,
-    ModMakeAndModel,
+    ModBodyType,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Body type search preview here</p>
+			<ModBodyType />
 		</StoryBlock>
 	`,
   data() {
