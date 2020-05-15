@@ -6,7 +6,8 @@ import axios from "axios";
 import StoryBlock from "./Components/StoryBlock";
 
 /* Module imports for previews */
-import ModMakeAndModel from "./Modules/ModMakeAndModel";
+import ModPicksMMP from "./Modules/ModPicksMMP";
+import ModPicksFinance from "./Modules/ModPicksFinance";
 
 export default {
   title: "Homepage Modules/Picks Carousel",
@@ -19,11 +20,11 @@ export const MakeModelPrice = () => ({
   name: "MakeModelPrice",
   components: {
     StoryBlock,
-    ModMakeAndModel,
+    ModPicksMMP,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Make model price preview</p>
+			<ModPicksMMP />
 		</StoryBlock>
 	`,
   data() {
@@ -55,7 +56,7 @@ export const AdditionalInfo = () => ({
   name: "AdditionalInfo",
   components: {
     StoryBlock,
-    ModMakeAndModel,
+    ModPicksMMP,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
@@ -91,11 +92,11 @@ export const ShowFinance = () => ({
   name: "ShowFinance",
   components: {
     StoryBlock,
-    ModMakeAndModel,
+    ModPicksFinance,
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Finance price</p>
+			<ModPicksFinance />
 		</StoryBlock>
 	`,
   data() {

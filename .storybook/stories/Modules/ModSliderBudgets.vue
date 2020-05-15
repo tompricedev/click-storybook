@@ -249,54 +249,39 @@ export default {
           transition: all 0.3s ease-in-out;
         }
       }
-      // &:nth-child(1),
-      // .lazy-background {
-      //   &.visible {
-      //     background: @primary-colour
-      //       url("@{dealer-img}/theme/budget-box-1.jpg") center center no-repeat;
-      //   }
-      //   background-size: cover;
-      //   @media @mobile {
-      //     &.visible {
-      //       background: @primary-colour
-      //         url("@{dealer-img}/theme/budget-box-mob-1.jpg") center center
-      //         no-repeat;
-      //     }
-      //     background-size: cover;
-      //   }
-      // }
-      // &:nth-child(2),
-      // .lazy-background {
-      //   &.visible {
-      //     background: @primary-colour
-      //       url("@{dealer-img}/theme/budget-box-2.jpg") center center no-repeat;
-      //   }
-      //   background-size: cover;
-      //   @media @mobile {
-      //     &.visible {
-      //       background: @primary-colour
-      //         url("@{dealer-img}/theme/budget-box-mob-2.jpg") center center
-      //         no-repeat;
-      //     }
-      //     background-size: cover;
-      //   }
-      // }
-      // &:nth-child(3),
-      // .lazy-background {
-      //   &.visible {
-      //     background: @primary-colour
-      //       url("@{dealer-img}/theme/budget-box-3.jpg") center center no-repeat;
-      //   }
-      //   background-size: cover;
-      //   @media @mobile {
-      //     &.visible {
-      //       background: @primary-colour
-      //         url("@{dealer-img}/theme/budget-box-mob-3.jpg") center center
-      //         no-repeat;
-      //     }
-      //     background-size: cover;
-      //   }
-      // }
+      &:nth-child(1) {
+          background: @primary-colour
+            url("../assets/budgets/budget-box-1.jpg") center center no-repeat;
+					background-size: cover;
+        // @media @mobile {
+        //     background: @primary-colour
+        //       url("@{dealer-img}/theme/budget-box-mob-1.jpg") center center
+        //       no-repeat;
+        //   background-size: cover;
+        // }
+      }
+      &:nth-child(2) {
+          background: @primary-colour
+            url("../assets/budgets/budget-box-2.jpg") center center no-repeat;
+        background-size: cover;
+        // @media @mobile {
+        //     background: @primary-colour
+        //       url("@{dealer-img}/theme/budget-box-mob-2.jpg") center center
+        //       no-repeat;
+        //   background-size: cover;
+        // }
+      }
+      &:nth-child(3) {
+          background: @primary-colour
+            url("../assets/budgets/budget-box-3.jpg") center center no-repeat;
+        background-size: cover;
+        // @media @mobile {
+        //     background: @primary-colour
+        //       url("@{dealer-img}/theme/budget-box-mob-3.jpg") center center
+        //       no-repeat;
+        //   background-size: cover;
+        // }
+      }
       &:last-child {
         margin-right: 0px;
       }
@@ -341,7 +326,11 @@ export default {
 
   #finance-budget-range-min {
     clear: both;
-    margin: 0;
+		margin: 0;
+		
+		.row {
+			margin: 0;
+		}
 
     label {
       float: left;

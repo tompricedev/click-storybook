@@ -365,11 +365,20 @@ export default {
     .flex-basis(@width: calc(~"100% - 15px"));
 
     select {
+			background: white url("../assets/select-icons/select-icon.svg") no-repeat;
+			background-size: 12px 12px;
+			background-position: right 5px center;
       height: 36px !important;
 			line-height: 36px !important;
 			outline: 1px solid grey;
 			padding: 0 15px;
 			width: 100%;
+
+			&:hover {
+				background: white url("../assets/select-icons/select-icon-hover.svg") no-repeat;
+				background-size: 12px 12px;
+				background-position: right 5px center;
+			}
 
       @media @mobile {
         height: 36px !important;

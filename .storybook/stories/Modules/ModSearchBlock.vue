@@ -420,9 +420,9 @@ select {
   padding: 0 20px 0 5px;
   margin: 0;
   color: @text-colour;
-  background: white;
-  // background-size: 12px 12px;
-  // background-position: right 5px center;
+	background: white url("../assets/select-icons/select-icon.svg") no-repeat;
+  background-size: 12px 12px;
+  background-position: right 5px center;
   border-radius: 5px;
   border: 1px solid #ddd;
   outline: none;
@@ -430,7 +430,7 @@ select {
 
   &:focus,
   &:hover {
-    // background: white url("@{dealer-img}/theme/select-icon-hover.svg") no-repeat;
+    background: white url("../assets/select-icons/select-icon-hover.svg") no-repeat;
     background-size: 12px 12px;
     background-position: right 5px center;
     outline: none;
