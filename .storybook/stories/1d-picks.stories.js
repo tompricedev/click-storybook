@@ -60,7 +60,7 @@ export const AdditionalInfo = () => ({
   },
   template: `
 		<StoryBlock :items="items" :module="module">
-			<p>Additional info</p>
+			<p>Additional info - use the one from Wavmob</p>
 		</StoryBlock>
 	`,
   data() {
