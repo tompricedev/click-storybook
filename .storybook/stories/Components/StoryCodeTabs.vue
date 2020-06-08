@@ -16,6 +16,10 @@
         </v-card>
       </v-tab-item>
     </v-tabs-items>
+		<v-btn class="my-5" color="primary">
+			<v-icon class="mr-2">mdi-content-copy</v-icon>
+			Copy Code
+		</v-btn>
   </v-card>
 </template>
 
