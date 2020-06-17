@@ -1,0 +1,149 @@
+fieldset {
+  padding: 0;
+  border: none;
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 36px;
+  float: none;
+  padding: 0 20px 0 5px;
+  margin: 0;
+  color: @text-colour;
+  background: white url("@{dealer-img}/theme/select-icon.svg") no-repeat;
+  background-size: 12px 12px;
+  background-position: right 5px center;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: 0.2s all ease-in-out;
+
+  &:focus,
+  &:hover {
+    background: white url("@{dealer-img}/theme/select-icon-hover.svg") no-repeat;
+    background-size: 12px 12px;
+    background-position: right 5px center;
+    outline: none;
+  }
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+input,
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  max-width: 100%;
+  height: 36px;
+  float: none;
+  padding: 0 5px;
+  margin: 0;
+  color: @text-colour;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  outline: none;
+
+  // override structure
+  .sidebar & {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+textarea {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+
+  // override structure
+  .sidebar & {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+// Buttons
+
+.btn {
+  display: inline-block;
+  margin: 0;
+  padding: 0 15px;
+  background: @button-bg-colour;
+  color: @button-text-colour !important; // Importanted to override any visited links
+  font-family: @alpha-font;
+  font-size: 12px;
+  line-height: 36px;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: none;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 0;
+  border-radius: 3px;
+  box-sizing: border-box;
+  transition: 0.2s all linear;
+
+  &:hover {
+    background: @button-bg-hover-colour;
+    color: @button-text-hover-colour !important; // Importanted to override any visited links
+    border: 0;
+  }
+}
+
+.btn--engage {
+  .btn;
+  background: @reserve-bg-colour !important;
+  color: white !important;
+
+  &:hover {
+    background: @primary-colour !important;
+    color: white !important;
+  }
+}
+
+#slider-search-panel input.button,
+#search-advanced button.button,
+form#webzationForm input#webzationButton,
+#fin-table-apply a.button,
+#fin-table-apply-mob a.button,
+#fin-calc-adjust a.button,
+a#finance_apply.button,
+.sidebar-widget input.button,
+#partex-apply input.button,
+#sellcar-submit .button,
+#car-locator-apply .button,
+#booking-form-submit .button,
+#repair-enquiry-submit .button,
+.favourites-button button.button,
+.favourites-button a.button,
+a.button.bespoke,
+.button.full,
+.button,
+a.button,
+.button.silver,
+input[type="submit"],
+input[type="submit"].button,
+.widget-search-full input.button,
+.widget-search-full button.button,
+#search-advanced button.button {
+  .btn;
+}
+
+#recaptcha_widget,
+#new_captcha {
+  margin-bottom: 20px;
+  overflow: hidden;
+  clear: left;
+}
+
+#sellcar-submit input[type="submit"] {
+  float: right;
+}

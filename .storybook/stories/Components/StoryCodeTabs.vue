@@ -42,8 +42,5 @@ export default {
 		code: String,
 		module: Number,		
 	},
-	mounted() {
-		console.log(`code tabs: ${this.items}, ${this.module}`)
-	},
 };
 </script>

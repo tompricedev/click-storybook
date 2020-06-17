@@ -1,0 +1,9 @@
+{
+	"hosting": {
+		"public": "storybook-static"
+	},
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

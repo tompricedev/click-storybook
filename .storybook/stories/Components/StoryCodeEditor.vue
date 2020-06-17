@@ -33,8 +33,5 @@ export default {
 		code: String,
 		module: Number
 	},
-	mounted() {
-		console.log(`code editor: ${this.code}, ${this.item}`)
-	}
 };
 </script>

@@ -4,8 +4,7 @@
 			User Guide
 		</v-card-title>
 		<v-card-text :userguide="userguide">
-			<p v-if="userguide.type == 'text'">{{ userguide.content }}</p>
-			<p v-else>It's not text man</p>
+			<p>{{ userguide.content }}</p>			
 		</v-card-text>
 		<slot></slot>
 	</v-card>
@@ -16,8 +15,7 @@ export default {
 	data() {
 		return {
 			userguide: {
-				type: 'Text',
-				content: 'A userguide here'
+				content: `User guide will go here. We need to create user guides for each module & add them to the individual component's data.`
 			}
 		}
 	}

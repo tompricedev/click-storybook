@@ -2,6 +2,6 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 export default {
-	title: 'Homepage Modules'
+	title: 'Homepage Modules',
 }
 

@@ -78,7 +78,7 @@
 
 <script>
 export default {
-  mounted() {
+  beforeCreate() {
     let jqueryUICss = document.createElement("link");
     jqueryUICss.setAttribute(
       "href",
@@ -119,7 +119,7 @@ export default {
 			});
 		`;
       document.head.appendChild(slider);
-    }, 2000);
+    }, 100);
   },
 };
 </script>
@@ -249,54 +249,21 @@ export default {
           transition: all 0.3s ease-in-out;
         }
       }
-      // &:nth-child(1),
-      // .lazy-background {
-      //   &.visible {
-      //     background: @primary-colour
-      //       url("@{dealer-img}/theme/budget-box-1.jpg") center center no-repeat;
-      //   }
-      //   background-size: cover;
-      //   @media @mobile {
-      //     &.visible {
-      //       background: @primary-colour
-      //         url("@{dealer-img}/theme/budget-box-mob-1.jpg") center center
-      //         no-repeat;
-      //     }
-      //     background-size: cover;
-      //   }
-      // }
-      // &:nth-child(2),
-      // .lazy-background {
-      //   &.visible {
-      //     background: @primary-colour
-      //       url("@{dealer-img}/theme/budget-box-2.jpg") center center no-repeat;
-      //   }
-      //   background-size: cover;
-      //   @media @mobile {
-      //     &.visible {
-      //       background: @primary-colour
-      //         url("@{dealer-img}/theme/budget-box-mob-2.jpg") center center
-      //         no-repeat;
-      //     }
-      //     background-size: cover;
-      //   }
-      // }
-      // &:nth-child(3),
-      // .lazy-background {
-      //   &.visible {
-      //     background: @primary-colour
-      //       url("@{dealer-img}/theme/budget-box-3.jpg") center center no-repeat;
-      //   }
-      //   background-size: cover;
-      //   @media @mobile {
-      //     &.visible {
-      //       background: @primary-colour
-      //         url("@{dealer-img}/theme/budget-box-mob-3.jpg") center center
-      //         no-repeat;
-      //     }
-      //     background-size: cover;
-      //   }
-      // }
+      &:nth-child(1),
+      .lazy-background {
+				background: @primary-colour url('https://source.unsplash.com/random') center no-repeat;
+				background-size: cover;
+      }
+      &:nth-child(2),
+      .lazy-background {
+				background: @primary-colour url('https://source.unsplash.com/random') center no-repeat;
+				background-size: cover;
+      }
+      &:nth-child(3),
+      .lazy-background {
+				background: @primary-colour url('https://source.unsplash.com/random') center no-repeat;
+				background-size: cover;
+      }
       &:last-child {
         margin-right: 0px;
       }

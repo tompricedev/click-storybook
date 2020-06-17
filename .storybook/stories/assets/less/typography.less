@@ -1,0 +1,46 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: @heading-colour;
+  font-family: @heading-font;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+a,
+a:visited {
+  color: @accent-colour;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: @text-colour;
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+p {
+  color: @text-colour;
+  font-family: @body-font;
+  font-size: 16px;
+  line-height: 1.4;
+}

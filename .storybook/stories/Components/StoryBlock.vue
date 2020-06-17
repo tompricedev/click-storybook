@@ -30,8 +30,5 @@ export default {
 		items: Array,
 		module: Number
 	},
-	mounted() {
-		console.log(`story block: ${this.items}, ${this.module}`)
-	},
 }
 </script>

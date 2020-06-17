@@ -50,7 +50,7 @@
 
 <script>
 export default {
-  mounted() {
+  beforeCreate() {
 		let jqueryUICss = document.createElement('link');
 			jqueryUICss.setAttribute('href', '//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
 			document.head.appendChild(jqueryUICss);
@@ -88,7 +88,7 @@ export default {
 			});
 		`;
       document.head.appendChild(slider);
-		}, 2000);
+		}, 100);
   },
 };
 </script>
