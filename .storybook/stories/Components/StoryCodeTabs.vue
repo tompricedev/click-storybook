@@ -1,5 +1,5 @@
 <template>
-  <v-card flat :items="items" :module="module">
+  <v-card flat :items="items">
     <v-tabs v-model="tab" background-color="primary" dark>
       <v-tab v-for="(item, i) in items" :key="i">
         {{ item.tab }}
@@ -16,7 +16,7 @@
         </v-card>
       </v-tab-item>
     </v-tabs-items>
-		<v-btn class="my-5" color="primary">
+		<v-btn class="my-5" color="primary" @click="copyCode">
 			<v-icon class="mr-2">mdi-content-copy</v-icon>
 			Copy Code
 		</v-btn>
@@ -39,8 +39,13 @@ export default {
 	},
 	props: {
 		items: Array,
-		code: String,
-		module: Number,		
+		code: String,	
 	},
+	methods: {
+		copyCode: function() {	
+			let clip = this.items[this.tab].code;
+			navigator.clipboard.writeText(clip);		
+		}
+	}
 };
 </script>

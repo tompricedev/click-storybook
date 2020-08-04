@@ -11,13 +11,5 @@
 </template>
 
 <script>
-export default {
-	data() {
-		return {
-			userguide: {
-				content: `User guide will go here. We need to create user guides for each module & add them to the individual component's data.`
-			}
-		}
-	}
-}
+export default {}
 </script>

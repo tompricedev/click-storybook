@@ -4,9 +4,9 @@
 			<slot></slot>
 		</StoryPreview>
 		<StoryCode>
-			<StoryCodeTabs :items="items" :module="module" />
+			<StoryCodeTabs :items="items"  />
 		</StoryCode>
-		<StoryUserGuide />
+		<StoryFiles :files="files" v-if="files" />
 	</section>
 </template>
 
@@ -15,7 +15,7 @@ import StoryPreview from "./StoryPreview";
 import StoryCode from "./StoryCode";
 import StoryCodeTabs from "./StoryCodeTabs";
 import StoryCodeEditor from "./StoryCodeEditor";
-import StoryUserGuide from "./StoryUserGuide";
+import StoryFiles from "./StoryFiles";
 
 export default {
 	name: "story-block",
@@ -23,12 +23,12 @@ export default {
     StoryPreview,
     StoryCode,
     StoryCodeTabs,
-    StoryCodeEditor,
-		StoryUserGuide,		
+		StoryCodeEditor,		
+		StoryFiles,		
 	},
 	props: {
 		items: Array,
-		module: Number
+		files: Array
 	},
 }
 </script>

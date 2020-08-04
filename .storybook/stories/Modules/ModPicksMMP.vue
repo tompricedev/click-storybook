@@ -7,45 +7,71 @@
           class="touchcarousel clear-fix"
           style="overflow: visible;"
         >
-          <em class="row-block__heading center">Our latest offers</em>
+          <em class="row-block__heading center">Latest arrivals</em>
           <div class="touchcarousel-wrapper grabbing-cursor">
             <ul
               class="touchcarousel-container"              
             >
-              <li id="pick" class="touchcarousel-item" v-for="vehicle in vehicles">
-                <a
-                  href="void();"
-                  title="Used MERCEDES-BENZ C-CLASS for sale in Stoke on Trent"
+              <li v-for="vehicle in vehicles" id="pick_2" class="touchcarousel-item">
+                <a href="" title="Used MINI HATCH COOPER for sale in Thurleigh"
                   ><img
                     class="home-carousel-image"
-                    alt="2009 MERCEDES-BENZ C-CLASS 2.1 C220 CDI BLUEEFFICIENCY SPORT 4d 170 BHP £7895.00"
+                    alt="2004 MINI HATCH COOPER 1.6 COOPER 3d 114 BHP £1999.00"
                     src="https://source.unsplash.com/random/300x200"
                 /></a>
-                <div class="carousel-text">
-                  <a
-                    href="used-mercedes-benz-c-class-stoke-on-trent-staffordshire-2508370"
-                    title="Used 2009 MERCEDES-BENZ C-CLASS 2.1 C220 CDI BLUEEFFICIENCY SPORT 4d 170 BHP for sale in Stoke on Trent"
-                  >
-                    <div class="carousel-info__price-block">
-                      <div class="carousel-info__price">
-                        <div class="price">£7,895</div>
-                      </div>
-                      <div class="carousel-info__finance {FINANCE_STATUS}">
-                        <div class="label">Finance from</div>
-                        <div class="monthly">£184 <span>p/m</span></div>
-                      </div>
-                    </div>
-                    <div class="carousel-info__title">
-                      MERCEDES-BENZ C-CLASS
-                    </div>
-                    <div class="carousel-info__variant">
-                      2009 2.1 C220 CDI BLUEEFFICIENCY SPORT 4d 170 BHP
-                    </div>
-                  </a>
+
+                <div class="carousel-info">
+                  <div class="carousel-info__title">MINI HATCH COOPER</div>
+                  <div class="carousel-info__variant">
+                    2004 1.6 COOPER 3d 114 BHP
+                  </div>
+                  <div class="carousel-info__price-block">
+                    £1,999
+                    <span class="monthly {FINANCE_STATUS}">From £59 p/m</span>
+                  </div>
+                  <div class="carousel-info__ctas">
+                    <a
+                      href="used-mini-hatch-cooper-thurleigh-bedfordshire-2826943"
+                      title="Used 2004 MINI HATCH COOPER 1.6 COOPER 3d 114 BHP for sale in Thurleigh"
+                      class="btn"
+                      >View this vehicle</a
+                    >
+                  </div>
                 </div>
               </li>
-							
             </ul>
+          </div>
+          <a href="#" class="arrow-holder left"
+            ><span class="icon-arrow-left arrow-icon left"></span
+          ></a>
+          <a href="#" class="arrow-holder right"
+            ><span class="icon-arrow-right arrow-icon right"></span
+          ></a>
+          <div class="tc-paging-container">
+            <div class="tc-paging-centerer">
+              <div class="tc-paging-centerer-inside">
+                <a class="tc-paging-item" href="#">1</a
+                ><a class="tc-paging-item" href="#">2</a
+                ><a class="tc-paging-item" href="#">3</a
+                ><a class="tc-paging-item" href="#">4</a
+                ><a class="tc-paging-item" href="#">5</a
+                ><a class="tc-paging-item current" href="#">6</a
+                ><a class="tc-paging-item" href="#">7</a
+                ><a class="tc-paging-item" href="#">8</a
+                ><a class="tc-paging-item" href="#">9</a
+                ><a class="tc-paging-item" href="#">10</a
+                ><a class="tc-paging-item" href="#">11</a
+                ><a class="tc-paging-item" href="#">12</a
+                ><a class="tc-paging-item" href="#">13</a
+                ><a class="tc-paging-item" href="#">14</a>
+              </div>
+            </div>
+          </div>
+          <div class="scrollbar-holder">
+            <div
+              class="scrollbar dark"
+              style="width: 314px; left: 369.388px;"
+            ></div>
           </div>
         </div>
       </div>
@@ -57,7 +83,7 @@
 export default {
   data() {
     return {
-      vehicles: [1, 2, 3, 4, 5, 6, 7],
+      vehicles: [1, 2, 3, 4, 5, 6],
     };
   },
 };
@@ -67,9 +93,8 @@ export default {
 @import "../assets/less/global.less";
 
 .car-carousel {
-  background: #f5f5f5;
-	box-sizing: border-box;
-	padding: 40px 0;
+  background: white;
+  box-sizing: border-box;
 
   .container,
   .pad-10.overflow-hidden {
@@ -85,41 +110,40 @@ export default {
   width: 100%;
 
   img {
+    object-fit: cover;
     width: 100%;
-    height: auto;
-    transition: all 0.2s linear;
+    height: 200px;
   }
 
-  img[src*="placeholder.svg"] {
-    height: 32px;
-    width: 32px;
-  }
+  // img[src*="placeholder.svg"] {
+  //   height: 32px;
+  //   width: 32px;
+  // }
 
   .touchcarousel-wrapper {
     padding: 0;
   }
 
   .touchcarousel-container {
-    // display: flex;
+    display: flex;
     .flex-display(@display: flex);
     .align-items(@align: flex-start);
+    padding: 0 0 10px 0;
   }
 
   .touchcarousel-item {
     // flex: 0 0 300px;
     .flex-grow(@grow: 0);
     .flex-shrink(@shrink: 0);
-    .flex-basis(@width: 320px);
-    width: 320px;
+    .flex-basis(@width: 303px);
+    width: 303px;
     margin-right: 20px;
     position: relative;
-    text-align: center;
     transition: all 0.2s ease-in-out;
     box-sizing: border-box;
     background: white;
     border: 1px solid darken(@body-colour, 7%);
     border-radius: 5px;
-    box-shadow: 0 3px 3px #eaeff7;
     box-sizing: border-box;
     overflow: hidden;
 
@@ -128,85 +152,15 @@ export default {
       width: 300px;
     }
 
-    .carousel-image {
-      object-fit: cover;
-      width: 100%;
-      height: 200px;
-    }
-
     .carousel-info {
-      &__price-block {
-        .flex-display(@display: flex);
-        width: 100%;
-        box-sizing: border-box;
-        min-height: 60px;
-      }
-
-      &__price,
-      &__finance {
-        position: relative;
-        .flex-grow(@grow: 1);
-        .flex-shrink(@shrink: 1);
-        .flex-basis(@width: 50%);
-        width: 50%;
-        .flex-display(@display: flex);
-        .flex-direction(@direction: column);
-        .justify-content(@justify: center);
-        .align-items(@align: center);
-        background: @primary-colour;
-        color: white;
-        padding: 10px;
-        font-size: 16px;
-        font-weight: 700;
-        line-height: 1;
-        font-weight: bold;
-        box-sizing: border-box;
-
-        @media @tablet {
-          font-size: 14px;
-        }
-
-        .label {
-          color: @text-colour;
-          font-family: @body-font;
-          font-size: 10px;
-          line-height: 1;
-          text-transform: uppercase;
-        }
-
-        .price {
-          font-size: 18px;
-        }
-
-        .price,
-        .monthly {
-          color: white;
-          font-family: @heading-font;
-          line-height: 1;
-          font-weight: bold;
-
-          span {
-            font-size: 10px;
-          }
-        }
-      }
-
-      &__finance {
-        background: lighten(@primary-colour, 15%);
-
-        .label {
-          color: @accent-colour;
-        }
-      }
-
       &__title {
         display: block;
-        margin: 15px 15px 10px 15px;
+        margin: 20px 20px 5px 20px;
         font-family: @heading-font;
         font-size: 20px;
         line-height: 1.2;
-        font-weight: bold;
-        color: @text-colour;
+        font-weight: 700;
+        color: @heading-colour;
         text-align: left;
         overflow: hidden;
         white-space: nowrap;
@@ -215,7 +169,7 @@ export default {
 
       &__variant {
         display: block;
-        margin: 0 15px 15px 15px;
+        margin: 0 20px 10px 20px;
         font-family: @heading-font;
         font-size: 16px;
         line-height: 1.2;
@@ -225,6 +179,30 @@ export default {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+      }
+
+      &__price-block {
+        display: block;
+        margin: 10px 20px 20px;
+        font-family: @heading-font;
+        font-size: 20px;
+        line-height: 1.2;
+        font-weight: 700;
+        color: @heading-colour;
+
+        span.monthly {
+          display: block;
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+
+      &__ctas {
+        margin: 0 20px 10px 20px;
+
+        a {
+          display: block;
+        }
       }
     }
   }
@@ -252,10 +230,10 @@ export default {
 }
 
 .touchcarousel .arrow-holder {
-  height: 26px;
-  width: 26px;
+  height: 40px;
+  width: 40px;
   position: absolute;
-  top: 48%;
+  top: 54%;
   display: block;
   cursor: pointer;
   z-index: 25;
@@ -264,11 +242,11 @@ export default {
   border: none;
 
   &.left {
-    left: -34px;
+    left: -50px;
   }
 
   &.right {
-    right: -34px;
+    right: -50px;
   }
 
   @media handheld, only screen and (max-width: 1700px) {

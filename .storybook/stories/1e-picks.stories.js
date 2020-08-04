@@ -6,6 +6,8 @@ import axios from "axios";
 import StoryBlock from "./Components/StoryBlock";
 
 /* Module imports for previews */
+import ModPicksMMP from "./Modules/ModPicksMMP";
+import ModAddInfo from "./Modules/ModAddInfo";
 import ModFinancePrice from "./Modules/ModFinancePrice";
 
 export default {
@@ -19,11 +21,11 @@ export const MakeModelPrice = () => ({
   name: "MakeModelPrice",
   components: {
     StoryBlock,
-    ModFinancePrice,
+    ModPicksMMP,
   },
   template: `
-		<StoryBlock :items="items" :module="module">
-			<p>Make model price preview - WCS2020</p>
+		<StoryBlock :items="items" >
+			<ModPicksMMP />
 		</StoryBlock>
 	`,
   data() {
@@ -281,7 +283,6 @@ export const MakeModelPrice = () => ({
         type: "text",
         content: "Why am I moving?",
       },
-      module: 6,
     };
   },
 });
@@ -292,11 +293,11 @@ export const AdditionalInfo = () => ({
   name: "AdditionalInfo",
   components: {
     StoryBlock,
-    ModFinancePrice,
+    ModAddInfo,
   },
   template: `
-		<StoryBlock :items="items" :module="module">
-			<p>Additional info - Trade Vans Cardiff</p>
+		<StoryBlock :items="items" >
+			<ModAddInfo />
 		</StoryBlock>
 	`,
   data() {
@@ -527,7 +528,7 @@ export const ShowFinance = () => ({
     ModFinancePrice,
   },
   template: `
-		<StoryBlock :items="items" :module="module">
+		<StoryBlock :items="items" >
 			<ModFinancePrice />
 		</StoryBlock>
 	`,

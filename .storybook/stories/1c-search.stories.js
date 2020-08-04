@@ -24,12 +24,12 @@ export const MakeAndModel = () => ({
     ModMakeAndModel,
   },
   template: `
-		<StoryBlock :items="items" :module="module">
+		<StoryBlock :items="items" :files="files" >
 			<ModMakeAndModel />
 		</StoryBlock>
 	`,
   data() {
-    return {
+    return {			
       items: [
 				{
 					tab: "HTML",
@@ -305,24 +305,17 @@ export const MakeAndModel = () => ({
 }`
 				}
 			],
-      userguide: {
-        type: "text",
-        content: "Why am I moving?",
-      },
-      module: 3,
+			files: [
+				{
+					id: 1,
+					name: "HTML",
+					children: [
+						{ name: "html_homepage.tpl", link: "https://google.com" }
+					]
+				}
+			],			 
     };
-  },
-  // created() {
-  //   axios
-  //     .get(
-  //       "https://eu-west-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/clickcomponents-uwksb/service/getModules/incoming_webhook/webhook0"
-  //     )
-  //     .then((response) => {        
-        
-	// 			this.items = response.data[0].modules[this.module].items
-  //       console.log(this.items, this.module);
-  //     });
-  // },
+  },  
 });
 
 /***** 02. Brands *****/
@@ -334,7 +327,7 @@ export const Brands = () => ({
     ModBrands,
   },
   template: `
-		<StoryBlock :items="items" :module="module">
+		<StoryBlock :items="items" >
 			<ModBrands />
 		</StoryBlock>
 	`,
@@ -373,7 +366,6 @@ export const Brands = () => ({
         type: "text",
         content: "Why am I moving?",
       },
-      module: 4,
     };
   },
 });
@@ -387,7 +379,7 @@ export const BodyType = () => ({
     ModBodyType,
   },
   template: `
-		<StoryBlock :items="items" :module="module">
+		<StoryBlock :items="items" >
 			<ModBodyType />
 		</StoryBlock>
 	`,
@@ -427,7 +419,6 @@ export const BodyType = () => ({
         type: "text",
         content: "Why am I moving?",
       },
-      module: 5,
     };
   },
 });

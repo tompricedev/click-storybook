@@ -24,7 +24,7 @@ export const SliderOnly = () => ({
     ModSliderOnly,
   },
   template: `
-		<StoryBlock :items="items" :module="module">
+		<StoryBlock :items="items">
 			<ModSliderOnly />
 		</StoryBlock>
 	`,
@@ -313,7 +313,6 @@ export const SliderOnly = () => ({
 });`
 				}
 			],  
-      module: 3,
     };
   },
 });
@@ -327,7 +326,7 @@ export const SliderWithCar = () => ({
 		ModSliderCar
   },
   template: `
-		<StoryBlock :items="items" :module="module">
+		<StoryBlock :items="items" >
 			<ModSliderCar />
 		</StoryBlock>
 	`,
@@ -659,17 +658,17 @@ p {
 			],    
     };
   },
-  created() {
-    axios
-      .get(
-        "https://eu-west-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/clickcomponents-uwksb/service/getModules/incoming_webhook/webhook0"
-      )
-      .then((response) => {        
+  // created() {
+  //   axios
+  //     .get(
+  //       "https://eu-west-1.aws.webhooks.mongodb-stitch.com/api/client/v2.0/app/clickcomponents-uwksb/service/getModules/incoming_webhook/webhook0"
+  //     )
+  //     .then((response) => {        
         
-				this.items = response.data[0].modules[this.module].items
-        console.log(this.items, this.module);
-      });
-  },
+	// 			this.items = response.data[0].modules[this.module].items
+  //       console.log(this.items, this.module);
+  //     });
+  // },
 });
 
 /***** 03. Slider with budgets *****/
@@ -681,7 +680,7 @@ export const SliderWithBudgets = () => ({
 		ModSliderBudgets
   },
   template: `
-		<StoryBlock :items="items" :module="module">
+		<StoryBlock :items="items" >
 			<ModSliderBudgets />
 		</StoryBlock>
 	`,

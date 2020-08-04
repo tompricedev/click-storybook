@@ -31,7 +31,6 @@ export default {
 	props: {
 		item: Object,
 		code: String,
-		module: Number
 	},
 };
 </script>
