@@ -4,11 +4,10 @@ import { linkTo } from "@storybook/addon-links";
 import axios from "axios";
 
 import StoryBlock from "./Components/StoryBlock";
+import StoryPreviewImg from "./Components/StoryPreviewImg";
 
 /* Module imports for previews */
-import ModPromoFullWidth from "./Modules/ModPromoFullWidth";
 import ModPromoTwin from "./Modules/ModPromoTwin";
-import ModPromoTriple from "./Modules/ModPromoTriple";
 import ModPromoTiles from "./Modules/ModPromoTiles";
 
 export default {
@@ -17,19 +16,22 @@ export default {
 
 /***** 01. Full Width *****/
 
+import PromoFullWidth from './assets/screenshots/promo-full-width.png';
+
 export const FullWidth = () => ({
   name: "FullWidth",
   components: {
     StoryBlock,
-    ModPromoFullWidth,
+    StoryPreviewImg,
   },
   template: `
 		<StoryBlock :items="items" >
-			<ModPromoFullWidth />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${PromoFullWidth}`,
       items: [
         {
           tab: "HTML",
@@ -154,14 +156,16 @@ export const FullWidthBenefits = () => ({
   name: "FullWidthBenefits",
   components: {
     StoryBlock,
+    StoryPreviewImg,
   },
   template: `
 		<StoryBlock :items="items" >
-			<img src="${FullwidthBenefits}" alt="${name}" style="max-width:100%; height: auto;" />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+      preview: `${FullwidthBenefits}`,
       items: [
         {
           tab: "HTML",
@@ -266,174 +270,420 @@ export const FullWidthBenefits = () => ({
   },
 });
 
+/***** 01-b. Full Width Directions *****/
+
+import FullwidthDirections from "./assets/screenshots/fullwidth-directions.png";
+
+export const FullWidthDirections = () => ({
+  name: "FullWidthDirections",
+  components: {
+    StoryBlock,
+    StoryPreviewImg,
+  },
+  template: `
+		<StoryBlock :items="items" >
+			<StoryPreviewImg :preview="preview" />
+		</StoryBlock>
+	`,
+  data() {
+    return {
+      preview: `${FullwidthDirections}`,
+      items: [
+        {
+          tab: "HTML",
+          code: `<!-- Homepage HTML Panel 1 -->
+<div class="row-block location-promo lazy-background">
+
+	<div class="wrapper">
+		<div class="container">
+
+			<div class="promo-wrapper promo-wrapper--flex">
+
+				<div class="promo promo--thin promo--distance">
+					<em class="row-block__heading row-block__heading--large">We are...</em>
+					<ul class="location-list">
+						<li>
+							<i class="ci ci-shopping-cart"></i>
+							<em>5 minutes from <span>the Trafford Centre</span></em>
+						</li>
+						<li>
+							<i class="ci ci-train"></i>
+							<em>15 minutes from <span>Manchester Picadilly</span></em>
+						</li>
+						<li>
+							<i class="ci ci-plane"></i>
+							<em>15 minutes from <span>Manchester Airport</span></em>
+						</li>
+					</ul>
+				</div>
+
+				<div class="promo promo--thin promo--location">
+					<em class="row-block__heading row-block__heading--large row-block__heading--no-margin">
+						<span class="row-block__heading row-block__heading--thin row-block__heading--caps">We stock up to</span>
+						100 quality used vehicles
+					</em>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+</div>
+<!-- // END Homepage HTML Panel 1 -->`,
+        },
+        {
+          tab: "LESS",
+					code: `// Location promo
+					
+.row-block {
+	position: relative;
+	padding: 40px 0;
+	margin: 0;
+	background: white;
+
+	&__heading {
+		font-family: @heading-font;
+		display: block;
+		font-size: 1.4rem;
+		line-height: 1;
+		margin-bottom: 1.5rem;
+
+		&--large {
+			font-size: 36px;
+		}
+
+		&--caps {
+			text-transform: uppercase;
+		}
+
+		&--thin {
+			font-family: @heading-font;
+			font-size: 18px;
+			font-weight: 300;
+			margin-bottom: 10px;
+		}
+
+		&--no-margin {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.html3 {
+	background: #fff!important;
+	padding: 0px;
+	.container {
+		max-width: 100% !important;
+	}
+	.wrapper {
+		padding: 0px;
+		margin: 0px;
+	}
+	.aa-check-bnr {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+		@media @mobile {
+			flex-direction: column;
+		}
+		&__img {
+			img {
+				max-height: 160px;
+			}
+		}
+		&__text {
+			margin-left: 30px;
+			@media @mobile {
+				margin: 0;
+				text-align: center;
+			}
+			.header {
+				font-size: 24px;
+				font-weight: 600;
+				@media @tablet {
+					font-size: 18px;
+				}
+				@media @mobile {
+					margin-top: 5px;
+				}
+			}
+			.subheader {
+				font-size: 18px;
+				@media @tablet {
+					font-size: 16px;
+				}
+			}
+			.aa-button {
+				margin-top: 10px;
+				float: left;
+				a {
+					text-decoration: none;
+					background: black;
+					padding: 10px 15px;
+					box-sizing: border-box;
+					border-radius: 5px;
+					color: white;
+					text-transform: uppercase;
+					font-weight: 600;
+					display: block;
+					font-size: 14px;
+					transition: all 0.2s linear;
+					&:hover {
+						background: lighten(black, 25%);
+					}
+				}
+				@media @tablet {
+					margin-top: 7px;
+					a {
+						font-size: 12px;
+						padding: 7px 10px;
+						border-radius: 3px;
+					}
+				}
+				@media @mobile {
+					float: none;
+					width: 50%;
+					margin: 7px auto 14px auto;
+				}
+			}
+		}
+	}
+}
+
+.promo-wrapper {
+
+	&--flex {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-around;
+	}
+}
+
+.promo {
+	text-align: center;
+	color: white;
+
+	&--thin {
+		max-width: 500px;
+	}
+
+	&--wide {
+		max-width: 900px;
+		margin-left: auto;
+		margin-right: 0;
+	}
+}
+
+
+.row-block.location-promo {
+	&.visible{
+		padding: 80px 0;
+		background: @primary-colour url('@{dealer-img}/theme/location-promo{CACHE_BUSTER}.jpg') center center no-repeat!important;
+		background-size: cover!important;
+		color: white;
+	}
+
+	.promo-wrapper--flex {
+		@media @tablet {
+			flex-direction: column-reverse;
+		}
+	}
+	
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: fade(black, 50%);
+	}
+}
+
+.promo--location,
+.promo--distance {
+	text-align: left;
+	@media @tablet {
+		text-align: center;
+	}
+}
+
+.promo--distance {
+	@media @tablet {
+		margin-top: 50px;
+	}
+}
+
+.location-list {
+	max-width: 350px;
+	li {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		padding: 0 26px 0 0;
+		margin-bottom: 20px;
+		background: white;
+		color: @primary-colour;
+		font-size: 20px;
+		line-height: 1.1;
+		border-radius: 9999px;
+		box-sizing: border-box;
+
+		i {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			flex: 0 0 56px;
+			height: 56px;
+			width: 56px;
+			margin-right: 10px;
+			background: @accent-colour;
+			color: white;
+			font-size: 2rem;
+			border-radius: 9999px;
+		}
+
+		span {
+			display: block;
+			font-weight: 500;
+		}
+	}
+}`,
+        },
+      ],
+      userguide: {
+        type: "text",
+        content: "Why am I moving?",
+      },
+    };
+  },
+});
+
 /***** 2. Twin Banner *****/
+
+import PromoTwin from './assets/screenshots/promo-twin.png';
 
 export const TwinBanner = () => ({
   name: "TwinBanner",
   components: {
     StoryBlock,
-    ModPromoTwin,
+    StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<ModPromoTwin />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${PromoTwin}`,
       items: [
         {
           tab: "HTML",
-          code: `<div class="row-block row-block--promos">
+          code: `<!-- Homepage HTML Panel 2 -->
+<div class="{v2_8_MOBILE_ON_OFF} {v2_8_TABLET_ON_OFF} {v2_8_DESKTOP_ON_OFF}">
+	<div class="row-block html">
 
-	<div class="promo-items">
-		<!-- Promo -->
-		<a href="/servicing.php" title="Servicing and MOT" class="promo-item promo-item--1">
-			<div class="promo-item__image">
-				<img data-src="/img-src/{v2_FOLDER}/theme/panel-1.jpg" data-srcset="" alt="{v2_NAME}" class="responsive-img lazy" {PLACEHOLDER_IMAGE_SRC}>
+		<!-- Panel Left -->
+		<div id="panel-1" class="check-panel check-panel--dark flex alignvcenter aligncenter lazy-background">
+			<div>
+				<a href="/finance.php" class="inner-padding">
+					<span class="sub-heading">Refused Credit?</span>
+					<span class="text-content">We can help find finance tailored to you</span>
+					<span class="cta-button">Apply Now</span>
+				</a>	
 			</div>
-			<h2 class="promo-item__heading">Service & MOT</h2>
-			<div class="promo-item__content">We have an on-site service centre</div>
-			<div class="promo-item__cta">
-				<span class="btn">Book In</span>
+		</div>
+		<!-- // Panel Left -->
+
+
+		<!-- Panel Right -->
+		<div id="panel-2" class="check-panel check-panel--light flex alignvcenter aligncenter lazy-background">
+			<div>
+				<a href="/testimonials.php" class="inner-padding">
+					<span class="sub-heading">Customer Reviews</span>
+					<span class="text-content">We pride ourselves on our high standard of customer service</span>
+					<span class="cta-button">View More</span>
+				</a>
 			</div>
-		</a>
-		<!-- // Promo -->
-		<!-- Promo -->
-		<a href="/partex.php" title="Part Exchange" class="promo-item promo-item--2">
-			<div class="promo-item__image">
-				<img data-src="/img-src/{v2_FOLDER}/theme/panel-2.jpg" data-srcset="" alt="{v2_NAME}" class="responsive-img lazy" {PLACEHOLDER_IMAGE_SRC}>
-			</div>
-			<h2 class="promo-item__heading">Part Exchange</h2>
-			<div class="promo-item__content">Get a great valuation when you trade in today</div>
-			<div class="promo-item__cta">
-				<span class="btn">Part Exchange</span>
-			</div>
-		</a>
-		<!-- // Promo -->
+		</div>
+		<!-- Panel Right -->
+
 	</div>
-
 </div>`,
         },
         {
           tab: "LESS",
-          code: `.row-block--promos {
-	padding: 0!important;
-}
-
-.promo-items {
+          code: `// HTML 2
+.html {
 	display: flex;
 	flex-wrap: wrap;
-	margin: -1px;
+	background: @primary-colour;
 
-	.promo-item {
-		flex: 1 1 calc(~'100% / 2 - 2px');
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-content: center;
-		overflow: hidden;
-		height: 400px;
-		background: @primary-colour;
+	.check-panel {
 		position: relative;
-		cursor: pointer;
-		margin: 1px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		flex: 1 1 320px;
+		min-height: 400px;
+		padding: 20px;
+		text-align: center;
 
-		@media @tablet {
-			height: 300px;
-			flex: 1 1 calc(~'100% / 2 - 2px');
-		}
-		@media @mobile {
-			flex: 0 0 calc(~'100% / 1 - 2px');
-			height: 240px;
-		}
-
-		&__image {
+		&:before {
+			content: '';
 			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			z-index: 1;
-
-			img {
-				filter: grayscale(100%);
-				opacity: 0.2;
-				transform: scale(1);
-				transition: all 0.3s linear;
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-
-				&:hover {
-					transform: scale(1.2);
-					filter: unset;
-					opacity: 0.5;
-					transition: all 0.3s linear;
-				}
-			}
+			height: 100%;
+			width: 100%;
+			background: fade(@primary-colour,70%);
+			transition: all .2s;
 		}
 
-		&__heading,
-		&__content,
-		&__cta {
-			text-align: center;
-			z-index: 2;
-			pointer-events: none;
-			padding: 0 20px;
-
-			@media @tablet {
-				padding: 0 15px;
-			}
+		&:hover:before {
+			background: fade(@primary-colour,30%);
 		}
 
-		&__heading {
-			color: white;
-			font-size: 36px;
-			margin: 0;
+		.sub-heading {
+			display: block;
+			.main-header;
+			.main-header.center;
+			.main-header.light;
+		}
+
+		.text-content {
 			position: relative;
-
-			@media @tablet {
-				font-size: 32px;
-			}
-			@media @mobile {
-				font-size: 28px;
-			}
-
-			&:after {
-				top: -10px;
-				left: calc(~'50% - 35px');
-				margin-left: 0px;
-				content: " ";
-				height: 4px;
-				width: 70px;
-				background: @accent-colour;
-				position: absolute;
-				pointer-events: none;
-				transform: skew(-15deg, 0deg);
-				border-radius: 5px 0 5px 0;
-			}
+			display: block;
+			font-size: 18px;
+			color: white;
 		}
 
-		&__content {
-			color: fade(white,90%);
-			font-size: 20px;
-			margin: 0 0 20px 0;
-
-			@media @tablet {
-				font-size: 18px;
-			}
-			@media @mobile {
-				font-size: 16px;
-			}
-		}
-
-		&__cta {
-			.btn {
+		.cta-button {
+			position: relative;
+			display: inline-block;
+			color: black;
+			background: @accent-colour;
+			padding: 8px 15px;
+			text-align: center;
+			transition: 0.2s all linear;
+			margin-top: 30px;
+			&:hover {
 				background: white;
-				color: @primary-colour!important;  
+				color: @accent-colour;
 			}
 		}
+	}
+
+	#panel-1.visible {
+		background: url('@{dealer-img}/theme/panel-1.jpg') center center no-repeat !important;
+		background-size: cover !important;
+	}
+	#panel-2.visible {
+		background: url('@{dealer-img}/theme/panel-2.jpg') center center no-repeat !important;
+		background-size: cover !important;
 	}
 }`,
         },
@@ -444,19 +694,22 @@ export const TwinBanner = () => ({
 
 /***** 03. Triple Banner *****/
 
+import PromoTripleBanner from './assets/screenshots/promo-triple-banner.png';
+
 export const TripleBanner = () => ({
   name: "TripleBanner",
   components: {
     StoryBlock,
-    ModPromoTriple,
+    StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<ModPromoTriple />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${PromoTripleBanner}`,
       items: [
         {
           tab: "HTML",
@@ -609,22 +862,268 @@ export const TripleBanner = () => ({
   },
 });
 
-/***** 03-a. Triple Banner 2s1l *****/
+/***** 03-a. Triple Banner Icons *****/
+
+import PromoTripleBannerIcons from './assets/screenshots/promo-triple-banner-icons.png';
+
+export const TripleBannerIcons = () => ({
+  name: "TripleBannerIcons",
+  components: {
+    StoryBlock,
+    StoryPreviewImg
+  },
+  template: `
+		<StoryBlock :items="items" >
+			<StoryPreviewImg :preview="preview" />
+		</StoryBlock>
+	`,
+  data() {
+    return {
+			preview: `${PromoTripleBannerIcons}`,
+      items: [
+        {
+          tab: "HTML",
+          code: `<!-- Homepage HTML Panel 3 -->
+<div class="row-block row-block--trip">
+	<div class="wrapper">
+		<div class="container">
+
+			<div class="promo-icons">
+
+				<div class="promo-icon promo-icon--1">
+					<figure class="promo-icon__header-image">
+						<span class="image lazy-background">
+						</span>
+					</figure>
+					<i class='ci ci-insurance-badge'></i>
+					<em class="row-block__heading">Our Guarantee</em>
+					<p>We will resolve any issues with your car within three months of purchase <strong>in house</strong></p>
+					<p><a href="/used-cars" class="btn">View Stock</a></p>
+				</div>
+
+				<div class="promo-icon promo-icon--2">
+					<figure class="promo-icon__header-image">
+						<span class="image lazy-background">
+						</span>
+					</figure>
+					<i class='ci ci-car-key'></i>
+					<em class="row-block__heading">Part Exchange</em>
+					<p>Trade in your car with us today</p>
+					<p><a href="/partex.php" class="btn">Get Valuation</a></p>
+				</div>
+
+				<div class="promo-icon promo-icon--3">
+					<figure class="promo-icon__header-image">
+						<span class="image lazy-background">
+						</span>
+					</figure>
+					<i class='ci ci-exchange-alt'></i>
+					<em class="row-block__heading">We Buy Cars</em>
+					<p>We take the hassle out of selling privately</p>
+					<p><a href="/sellcar.php" class="btn">Get Valuation</a></p>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- // END Homepage HTML Panel 3 -->`,
+        },
+        {
+          tab: "LESS",
+          code: `// PROMO ICONS
+.row-block--trip {
+	background: white;
+	padding: 40px 0;
+
+	&:before {
+		content: none;
+	}
+	&:after {
+		border-top-color: white;
+	}
+
+	.container {
+		overflow: visible;
+	}
+
+	h2 {
+		text-align: center;
+		font-size: 40px;
+		margin-bottom: 30px;
+
+		@media @mobile {
+			font-size: 34px;
+		}
+		@media @mobile {
+			font-size: 28px;
+		}
+	}
+}
+
+.promo-icons {
+	margin-right: -10px;
+	margin-bottom: -10px;
+	display: flex;
+
+	@media @mobile {
+		flex-direction: column;
+	}
+}
+
+.promo-icon {
+	flex: 1;
+	margin: 20px;
+	background: white;
+	text-align: center;
+	border-radius: 16px;
+	box-shadow: 0 3px 10px fade(@primary-colour,15%);
+
+	&--1 {
+		.promo-icon__header-image {
+			.image {
+				&.visible {
+					background: url('@{dealer-img}/theme/promo-icon--1.jpg') center center no-repeat !important;
+					background-size: cover !important;
+				}
+			}
+		}
+	}
+
+	&--2 {
+		.promo-icon__header-image {
+			.image {
+				&.visible {
+					background: url('@{dealer-img}/theme/promo-icon--2.jpg') center center no-repeat !important;
+					background-size: cover !important;
+				}
+			}
+		}
+	}
+
+	&--3 {
+		.promo-icon__header-image {
+			.image {
+				&.visible {
+					background: url('@{dealer-img}/theme/promo-icon--3.jpg') center center no-repeat !important;
+					background-size: cover !important;
+				}
+			}
+		}
+	}
+
+	&__header-image {
+		margin-bottom: -36px;
+		height: 240px;
+		width: 100%;
+		overflow: hidden;
+		padding: 0;
+		background: none;
+
+		@media (max-width: 1279px) {
+			height: 200px;
+		}
+
+		@media @tablet {
+			height: 140px;
+			margin-bottom: -24px;
+		}
+
+		@media @mobile {
+			height: 190px;
+		}
+
+		span {
+			display: block;
+			height: 100%;
+			border-radius: 16px 16px 0 0;
+		}
+	}
+
+	i {
+		position: relative;
+		z-index: 1;
+		width: 56px;
+		height: 56px;
+		font-size: 26px;
+		line-height: 56px;
+		background: @accent-colour;
+		color: white;
+		text-align: center;
+		border-radius: 99px;
+
+		// @media @tablet {
+			
+		// }
+
+		&.fa.fa-mouse-pointer {
+			&:before {
+				margin-left: 3px;
+			}
+		}
+	}
+
+	.row-block__heading {
+		margin: 20px auto 0;
+		font-size: 30px;
+
+		@media @tablet {
+			margin: 10px auto 0;
+			font-size: 22px;
+		}
+	}
+
+	p {
+		padding: 20px;
+		color: @primary-colour;
+		font-size: 20px;
+		line-height: 24px;
+		letter-spacing: -0.28px;
+		margin-bottom: -20px;
+
+		@media (max-width: 1279px) {
+			font-size: 16px;
+		}
+
+		@media @tablet {
+			padding: 10px 20px;
+			margin-bottom: -5px;
+		}
+
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		a {
+			display: inline-block;
+		}
+	}
+}`,
+        },
+      ],
+    };
+  },
+});
+
+/***** 03-b. Triple Banner 2s1l *****/
 
 import promoTripleBanner2s1l from "./assets/screenshots/triple-promo-2s1l.png";
 
 export const TripleBanner2s1l = () => ({
   name: "TripleBanner2s1l",
   components: {
-    StoryBlock,
+		StoryBlock,
+		StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<img src="${promoTripleBanner2s1l}" style="width:100%;height:auto" />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${promoTripleBanner2s1l}`,
       items: [
         {
           tab: "HTML",
@@ -825,19 +1324,22 @@ flex: 1 1 auto;
 
 /***** 04. Tile Promo *****/
 
+import PromoTiles from './assets/screenshots/promo-tiles.png';
+
 export const TilePromo = () => ({
   name: "TilePromo",
   components: {
     StoryBlock,
-    ModPromoTiles,
+    StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<ModPromoTiles />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${PromoTiles}`,
       items: [
         {
           tab: "HTML",
@@ -1032,15 +1534,17 @@ import MotorateBanner from "./assets/screenshots/motorate-banner.png";
 export const MotoRateBanner = () => ({
   name: "MotoRateBanner",
   components: {
-    StoryBlock,
+		StoryBlock,
+		StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<img src="${MotorateBanner}" alt="${name}" style="max-width:100%; height: auto;" />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${MotorateBanner}`,
       items: [
         {
           tab: "HTML",
@@ -1148,15 +1652,17 @@ import ATHighlyRatedBanner from "./assets/screenshots/at-highly-rated-banner.png
 export const ATHighlyRated = () => ({
   name: "ATHighlyRated",
   components: {
-    StoryBlock,
+		StoryBlock,
+		StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<img src="${ATHighlyRatedBanner}" alt="${name}" style="max-width:100%; height: auto;" />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${ATHighlyRatedBanner}`,
       items: [
         {
           tab: "HTML",

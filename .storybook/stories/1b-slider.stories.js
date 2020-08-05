@@ -4,11 +4,7 @@ import { linkTo } from "@storybook/addon-links";
 import axios from "axios";
 
 import StoryBlock from "./Components/StoryBlock";
-
-/* Module imports for previews */
-import ModSearchBlock from "./Modules/ModSearchBlock";
-import ModSubtleText from "./Modules/ModSubtleText";
-import ModPopUp from "./Modules/ModPopUp";
+import StoryPreviewImg from "./Components/StoryPreviewImg";
 
 export default {
   title: "Homepage Modules/Hero Unit",
@@ -16,19 +12,22 @@ export default {
 
 /***** 01. UXUI Search Block *****/
 
+import UxHeroUnit from './assets/screenshots/ux-hero-unit.png';
+
 export const UXSearchBlock = () => ({
   name: "UXSearchBlock",
   components: {
     StoryBlock,
-    ModSearchBlock,
+    StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<ModSearchBlock />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${UxHeroUnit}`,
       items: [
 				{
 					tab: "HTML",
@@ -310,391 +309,430 @@ export const UXSearchBlock = () => ({
 
 //***** 02. Slider Subtle Text *****//
 
+import SliderSubtText from './assets/screenshots/slider-subtle-text.png';
+
 export const SliderSubtleText = () => ({
   name: "SliderSubtleText",
   components: {
     StoryBlock,
-    ModSubtleText,
+    StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<ModSubtleText />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${SliderSubtText}`,
       items: [
 				{
 					tab: "HTML",
-					code: `<!-- Homepage Slider -->
-<div class="row-block row-block--hero-header">
-	
-	<div id="responsive-slider-with-blocks-1" class="royalSlider rsMinW">
-		{SLIDERS}
+					code: `<!-- Slide 1 -->
+<div class="rsContent slide1 lazy-background">
+	<div class="wrapper">
+		<div class="container">
+			<div class="slider-text">
+				<div class="slider-block">
+					<div class="slider-heading">Welcome to<br>{v2_NAME}</div>
+					<div class="slider-subheading">Over 40 years experience in motortrade</div>
+					<div class="slider-button"><a href="/used-cars">View Stock</a></div>
+				</div>
+			</div>
+		</div>
 	</div>
-
 </div>
-<!-- // Homepage Slider -->`
+<!-- // END Slide 1 -->
+
+<!-- Slide 2 -->
+<div class="rsContent slide2 lazy-background">
+	<div class="wrapper">
+		<div class="container">
+			<div class="slider-text">
+				<div class="slider-block">
+					<div class="slider-heading">Finance Specialists</div>
+					<div class="slider-subheading">Low rate finance packages available, tailored to you</div>
+					<div class="slider-button"><a href="/finance.php">Apply Online</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- // END Slide 2 -->
+
+<!-- Slide 3 -->
+<div class="rsContent slide3 lazy-background">
+	<div class="wrapper">
+		<div class="container">
+			<div class="slider-text">
+				<div class="slider-block">
+					<div class="slider-heading">Part Exchange</div>
+					<div class="slider-subheading">Offset the cost of your next vehicle</div>
+					<div class="slider-button"><a href="/partex.php">Trade In Today</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- // END Slide 3 -->`
 				},
 				{
 					tab: "LESS",
-					code: `.row-block.row-block--hero-header {
-		padding: 0;
-		background: @secondary-colour;
+					code: `// slider heights
+@slider-height: 65vh;
+@slider-min-height: 600px;
+@slider-height-tablet: 60vh;
+@slider-min-height-tablet: 500px;
+@slider-height-mobile: 350px;
+@slider-min-height-mobile: 250px;
+
+/* Slider Row Block */
+.row-block.slider {
+	background: white !important;
+	padding: 0;
+	// display: flex;
 	
-		.container {
-			overflow: visible;
+
+	.container {
+		margin: 0 auto;
+		overflow: visible;
+		position: relative;
+		z-index: 2;
+	}
+
+}
+
+/* Slider Subtle text */
+#responsive-slider-with-blocks-1,
+.bContainer {
+	background: white;
+	height: @slider-height !important;
+	max-height: @slider-height !important;
+	min-height: @slider-min-height !important;
+	width: 100%;
+	position: relative;
+	
+
+	@media @lap {
+		height: @slider-height-tablet !important;
+		max-height: @slider-height-tablet !important;
+		min-height: @slider-min-height-tablet !important;
+	}
+
+	@media @mobile {
+		height: @slider-height-mobile !important;
+		max-height: @slider-height-mobile !important;
+		min-height: @slider-min-height-mobile !important;
+	}
+
+	.rsContent.slide1 {
+		&.visible {
+			background-image: url('@{dealer-img}/theme/banner1{CACHE_BUSTER}.jpg') !important;
+			background-color: @primary-colour;
+			@media screen and (max-width: 1920px) {
+				background-image: url('@{dealer-img}/theme/banner1{CACHE_BUSTER}.jpg') !important;
+			}
+			// @media @tablet { 
+			//  background-image: url('@{dealer-img}/theme/slide-1-tablet{CACHE_BUSTER}.jpg') !important; 
+			// }
+			@media @mobile {
+				background-image: url('@{dealer-img}/theme/banner1_mobile{CACHE_BUSTER}.jpg') !important;
+			}
 		}
 	}
-	
-	@keyframes fadein {
-		0% {
-			opacity: 0;
-		}
-	
-		100% {
-			opacity: 1;
+
+	.rsContent.slide2 {
+		&.visible {
+			background-image: url('@{dealer-img}/theme/banner2{CACHE_BUSTER}.jpg') !important;
+			background-color: @primary-colour;
+			@media screen and (max-width: 1920px) {
+				background-image: url('@{dealer-img}/theme/banner2{CACHE_BUSTER}.jpg') !important;
+			}
+			// @media @tablet { 
+			//  background-image: url('@{dealer-img}/theme/slide-2-tablet{CACHE_BUSTER}.jpg') !important; 
+			// }
+			@media @mobile {
+				background-image: url('@{dealer-img}/theme/banner1_mobile{CACHE_BUSTER}.jpg') !important;
+			}
 		}
 	}
-	
-	@slider-height: 65vh;
-	@slider-height-tablet: 55vh;
-	@slider-height-mobile: 320px;
-	
-	
-	/* Slider Subtle text */
-	#responsive-slider-with-blocks-1,
-	.bContainer {
-		background: white;
-		height: @slider-height !important;
-		max-height: @slider-height !important;
-		min-height: 500px !important;
-		width: 100%;
-	
-		@media @tablet {
-			height: @slider-height-tablet !important;
-			max-height: @slider-height-tablet !important;
-			min-height: 400px !important;
+
+	.rsContent.slide3 {
+		&.visible {
+			background-image: url('@{dealer-img}/theme/banner3{CACHE_BUSTER}.jpg') !important;
+			background-color: @primary-colour;
+			@media screen and (max-width: 1920px) {
+				background-image: url('@{dealer-img}/theme/banner3{CACHE_BUSTER}.jpg') !important;
+			}
+			// @media @tablet { 
+			//  background-image: url('@{dealer-img}/theme/slide-3-tablet{CACHE_BUSTER}.jpg') !important; 
+			// }
+			@media @mobile {
+				background-image: url('@{dealer-img}/theme/banner3_mobile{CACHE_BUSTER}.jpg') !important;
+			}
 		}
-	
+	}
+
+	.rsContent.slide1,
+	.rsContent.slide2,
+	.rsContent.slide3,
+	.rsContent.slide4 {
+		-webkit-background-size: cover !important;
+		-moz-background-size: cover !important;
+		-o-background-size: cover !important;
+		background-size: cover !important;
+		background-repeat: no-repeat !important;
+		background-position: center center !important;
+		position: relative;
+		display: flex;
+		&:before {
+			content:'';
+			display: block;
+			background: linear-gradient(90deg, fade(#000, 50%) 0%, fade(#000, 0%) 100%);
+			position: absolute;
+			z-index: 1;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+		}
+
 		@media @mobile {
-			height: @slider-height-mobile !important;
-			max-height: @slider-height-mobile !important;
-			min-height: @slider-height-mobile !important;
+			background: @primary-colour;
 		}
-	
-		.rsContent.slide1.visible {
-			background-image: url('@{dealer-img}/theme/slide-1{CACHE_BUSTER}.jpg') !important;
-			@media @mobile {
-				background-image: url('@{dealer-img}/theme/slide-1--mobile{CACHE_BUSTER}.jpg') !important;
-			}
-		}
-		.rsContent.slide2.visible {
-			background-image: url('@{dealer-img}/theme/slide-2{CACHE_BUSTER}.jpg') !important;
-			@media @mobile {
-				background-image: url('@{dealer-img}/theme/slide-2--mobile{CACHE_BUSTER}.jpg') !important;
-			}
-		}
-		.rsContent.slide3.visible {
-			background-image: url('@{dealer-img}/theme/slide-3{CACHE_BUSTER}.jpg') !important;
-			@media @mobile {
-				background-image: url('@{dealer-img}/theme/slide-3--mobile{CACHE_BUSTER}.jpg') !important;
-			}
-		}
-		.rsContent.slide4.visible {
-			background-image: url('@{dealer-img}/theme/slide-4{CACHE_BUSTER}.jpg') !important;
-			@media @mobile {
-				background-image: url('@{dealer-img}/theme/slide-4--mobile{CACHE_BUSTER}.jpg') !important;
-			}
-		}
-	
-		.rsContent.slide1.visible,
-		.rsContent.slide2.visible,
-		.rsContent.slide3.visible,
-		.rsContent.slide4.visible,
-		.rsContent.slide5.visible {
-			-webkit-background-size: cover !important;
-			-moz-background-size: cover !important;
-			-o-background-size: cover !important;
-			background-size: cover !important;
-			background-repeat: no-repeat !important;
-			background-position: center center !important;
+
+	}
+
+	.slider-text {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 370px;
+
+		@media @mobile {
+			width: 100%;
 			position: relative;
-			&:before {
-				content: " ";
-				height: 100%;
-				width: 100%;
-				background: fade(@secondary-colour,50%);
-				background: linear-gradient(to right, fade(@secondary-colour,50%) 30%, fade(@secondary-colour,0%));
-				position: absolute;
-				pointer-events: none;
+		}
+
+		.slider-block {
+			margin: 0;
+			height: @slider-height !important;
+			max-height: @slider-height !important;
+			min-height: @slider-min-height !important;
+			box-sizing: border-box;
+			display: flex !important;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+
+			@media @lap {
+				height: @slider-height-tablet !important;
+				max-height: @slider-height-tablet !important;
+				min-height: @slider-min-height-tablet !important;
+				justify-content: center;
+			}
+
+			@media @mobile {
+				height: @slider-height-mobile !important;
+				max-height: @slider-height-mobile !important;
+				min-height: @slider-min-height-mobile !important;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.slider-heading,
+			.slider-subheading,
+			.slider-button {
+				font-family: @heading-font;
+				font-weight: 400;
+				font-size: 18px;
+				line-height: 1.2;
+				color: white;
+				text-align: left;
+				text-transform: none;
+				display: block;
+				margin: 0;
+				padding: 0;
 				animation: fadein 1s;
 				animation-fill-mode: forwards;
-				opacity: 0;
-				animation-delay: 1s;
+				//opacity: 0;
 				transition: all 0.2s linear;
-	
-				@media @mobile {
-					top: 0;
-					left: 0;
-					transform: none;
-					border-radius: 0;
-					height: 100%;
-					width: 100%;
-					border: 0;
-					background: fade(@secondary-colour,50%);
-				}
-	
-			}
-	
-			@media @mobile {
-				background: @secondary-colour;
-			}
-	
-		}
-	
-		.slider-text {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 520px;
-			// background: linear-gradient(to right, fade(#000,45%) 0%, fade(#000,0%) 80%);
-	
-			@media @lap {
-				width: 420px;
-			}
-	
-			@media @tablet {
-				width: 250px;
-			}
-	
-			@media @mobile {
-				width: 100%;
-				position: static;
-			}
-	
-			.slider-block {
-				margin: 0;
-				height: @slider-height !important;
-				max-height: @slider-height !important;
-				min-height: 500px !important;
-				box-sizing: border-box;
-				display: flex !important;
-				flex-direction: column;
-				justify-content: center;
-	
+
 				@media @tablet {
-					height: @slider-height-tablet !important;
-					max-height: @slider-height-tablet !important;
-					min-height: 400px !important;
+					font-size: 18px;
 				}
-	
+
 				@media @mobile {
-					height: @slider-height-mobile !important;
-					max-height: @slider-height-mobile !important;
-					min-height: @slider-height-mobile !important;
-					align-items: center;
-					justify-content: center;
-				}
-	
-				.slider-heading,
-				.slider-subheading,
-				.slider-button {
-					font-family: @alpha-font;
-					font-weight: 300;
-					font-size: 20px;
-					line-height: 1.2;
-					color: white;
-					text-align: left;
-					text-transform: none;
-					display: block;
-					margin: 0;
-					padding: 0;
-					animation: fadein 1s;
-					animation-fill-mode: forwards;
-					opacity: 0;
-					transition: all 0.2s linear;
-	
-					@media @tablet {
-						font-size: 18px;
-					}
-	
-					@media @mobile {
-						font-size: 16px;
-						text-align: center;
-					}
-	
-					i {
-						display: block;
-					}
-	
-				}
-	
-				.slider-heading {
-					font-family: @heading-font;
-					font-size: 55px;
-					line-height: 1;
-					font-weight: 900;
-					padding: 0 0 30px;
-					margin: 0 0 20px 0;
+					font-size: 16px;
+					text-align: center;
 					position: relative;
-					animation-delay: 1.5s;
-					&:after {
-						bottom: 0px;
-						left: 0%;
-						margin-left: 0px;
-						content: " ";
-						height: 4px;
-						width: 70px;
-						background: @accent-colour;
-						border-radius: 10px;
-						position: absolute;
-						pointer-events: none;
-	
-						@media @mobile {
-							left: 50%;
-							margin-left: -35px;
-						}
-	
-					}
-	
-					@media @tablet {
-						font-size: 37px;
-					}
-	
+					z-index: 2;
+				}
+			}
+
+			.slider-heading {
+				font-weight: @heading-weight;
+				font-size: 40px;
+				line-height: 1;
+				text-transform: none;
+				padding: 0;
+				margin: 0 0 20px 0;
+				position: relative;
+				animation-delay: 1.5s;
+				text-shadow: 0 0 2px fade(black, 50%);
+
+				@media @mobile {
+					margin-top: 0px;
+				}
+
+				&:after {
+					top: -20px;
+					left: 0%;
+					margin-left: 0px;
+					content: " ";
+					height: 4px;
+					width: 70px;
+					background: @accent-colour;
+					position: absolute;
+					pointer-events: none;
+					transform: skew(-15deg, 0deg);
+					border-radius: 5px 0 5px 0;
+
 					@media @mobile {
-						font-size: 30px;
+						top: -20px;
+						left: 50%;
+						margin-left: -35px;
 					}
-	
 				}
-	
-				.slider-subheading {
+
+				@media @tablet {
+					font-size: 34px;
+				}
+
+				@media @mobile {
+					font-size: 28px;
+				}
+			}
+
+			.slider-subheading {
+				color: white;
+				letter-spacing: 0.5px;
+				text-transform: none;
+				animation-delay: 2s;
+				margin: 0 0 20px 0;
+				text-shadow: 0 2px 5px fade(black, 50%);
+
+				span {
+					width: 30px;
+					height: 30px;
+					line-height: 30px;
+					font-size: 20px;
+					font-weight: 600;
 					color: white;
-					text-transform: none;
-					animation-delay: 2s;
-					margin: 0 0 20px 0;
-	
-					span {
-						width: 30px;
-						height: 30px;
-						line-height: 30px;
-						font-size: 20px;
-						font-weight: 500;
+					background: @accent-colour;
+					border-radius: 99px;
+					display: inline-block;
+					text-align: center;
+				}
+
+				.list-ticks {
+
+					li {
 						color: white;
-						background: @accent-colour;
-						border-radius: 99px;
+						font-weight: bold;
 						display: inline-block;
-						text-align: center;
 					}
-	
 				}
-	
-				.slider-button {
-					margin: 15px 0 0 0;
-					width: 100%;
-					animation-delay: 2.5s;
-	
-					@media @tablet {
-						margin: 10px 0 0 0;
-					}
-	
-					a {
-						background: fade(black,15%);
-						color: @primary-colour;
-						border: 1px solid @primary-colour;
-						font-size: 14px;
-						line-height: 1;
-						font-weight: 300;
-						text-transform: none;
-						text-shadow: none;
-						text-decoration: none;
-						padding: 15px 30px;
-						border-radius: 0px;
-						transition: all 0.2s linear;
-	
-						@media @tablet {
-							padding: 13px 25px;
-							font-size: 12px;
-						}
-	
-						&:hover {
-							color: @secondary-colour;
-							background: white;
-						}
-	
-					}
-	
-				}
-	
 			}
-	
+
+			.slider-button {
+				margin: 15px 0 131px 0;
+				animation-delay: 2.5s;
+
+				@media @tablet {
+					margin: 10px 0 0 0;
+				}
+
+				a {
+					.btn;
+				}
+
+			}
+
 		}
-	
+
 	}
-	
-	.rsMinW {
-	
-		.rsBullets {
-			position: absolute;
-			z-index: 35;
-			bottom: 45%;
-			right: 40px;
-			text-align: left;
-			overflow: hidden;
-			line-height: 12px;
-	
-			@media @mobile {
-				bottom: 15px;
-				right: 41%;
-				line-height: 10px;
-			}
-	
+
+}
+
+.rsMinW {
+
+	.rsBullets {
+		position: absolute;
+		z-index: 35;
+		bottom: 45%;
+		right: 40px;
+		text-align: left;
+		overflow: hidden;
+		line-height: 12px;
+
+		@media @mobile {
+			bottom: 15px;
+			right: 41%;
+			line-height: 10px;
 		}
-	
-		.rsBullet {
-			width: 12px;
-			height: 12px;
-			display: block;
-			margin: 8px 0;
-			border-radius: 0;
-			background: @secondary-colour;
-	
-			@media @mobile {
-				width: 10px;
-				height: 10px;
-				margin: 0 3px;
-				background: @secondary-colour;
-				display: inline-block;
-			}
-	
-		}
-	
-		.rsBullet.rsNavSelected, .rsMinW .rsThumbs {
+
+	}
+
+	.rsBullet {
+		width: 12px;
+		height: 12px;
+		display: block;
+		margin: 8px 0;
+		border-radius: 0;
+		background: white;
+
+		@media @mobile {
+			width: 10px;
+			height: 10px;
+			margin: 0 3px;
 			background: white;
+			display: inline-block;
 		}
-	
-	}`
-				},
+
+	}
+
+	.rsBullet.rsNavSelected, .rsMinW .rsThumbs {
+		background: @accent-colour;
+	}
+
+}`
+				},				
 			],
     };
   },
 });
 
+
+
 //***** 03. Slider Pop Up *****//
+
+import SliderPopup from './assets/screenshots/slider-pop-up.png';
 
 export const SliderPopUp = () => ({
   name: "SliderPopUp",
   components: {
     StoryBlock,
-    ModPopUp,
+    StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<ModPopUp />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${SliderPopup}`,
       items: [
 				{
 					tab: "HTML",
@@ -928,15 +966,16 @@ export const UXSearchBottom = () => ({
   name: "UXSearchBottom",
   components: {
     StoryBlock,
-    ModPopUp,
+    StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<img src="${uxSearchBottom}" alt="" style="max-width: 100%; height: auto;" />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${uxSearchBottom}`,
       items: [
 				{
 					tab: "HTML",
@@ -1429,15 +1468,17 @@ import uxSearchRight from "./assets/screenshots/uxhero-search-right.png";
 export const UXSearchRight = () => ({
   name: "UXSearchRight",
   components: {
-    StoryBlock,
+		StoryBlock,
+		StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<img src="${uxSearchRight}" alt="" style="max-width: 100%; height: auto;" />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${uxSearchRight}`,
       items: [
 				{
 					tab: "HTML",

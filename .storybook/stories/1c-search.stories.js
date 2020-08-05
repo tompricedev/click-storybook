@@ -4,6 +4,7 @@ import { linkTo } from "@storybook/addon-links";
 import axios from "axios";
 
 import StoryBlock from "./Components/StoryBlock";
+import StoryPreviewImg from "./Components/StoryPreviewImg";
 
 /* Module imports for previews */
 import ModMakeAndModel from "./Modules/ModMakeAndModel";
@@ -17,19 +18,22 @@ export default {
 
 /***** 01. Make & Model *****/
 
+import SearchMakeModel from './assets/screenshots/search-make-model.png';
+
 export const MakeAndModel = () => ({
   name: "MakeAndModel",
   components: {
     StoryBlock,
-    ModMakeAndModel,
+    StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" :files="files" >
-			<ModMakeAndModel />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
-    return {			
+    return {		
+			preview: `${SearchMakeModel}`,	
       items: [
 				{
 					tab: "HTML",
@@ -370,21 +374,159 @@ export const Brands = () => ({
   },
 });
 
+/***** 02-a. Brands hover text *****/
+
+import BrandsText from './assets/screenshots/brands-hover-text.png';
+
+export const BrandsHoverText = () => ({
+  name: "BrandsHoverText",
+  components: {
+    StoryBlock,
+    StoryPreviewImg
+  },
+  template: `
+		<StoryBlock :items="items" >
+			<StoryPreviewImg :preview="preview" />
+		</StoryBlock>
+	`,
+  data() {
+    return {
+			preview: `${BrandsText}`,
+      items: [
+				{
+					tab: "HTML",
+					code: `<a href="/{BRAND_SEARCH_SLUG}" title="Used {BRAND_NAME} for sale in {v2_TOWN}">
+	<figure>
+		<img class="lazy" {BRAND_IMAGE_PLACEHOLDER} {BRAND_IMAGE_SRC} alt="Used {BRAND_NAME} for sale in {v2_TOWN}" {BRAND_IMAGE_SRC_SET} />
+		<figcaption><i>{BRAND_NAME}</i></figcaption>
+	</figure>
+</a>`
+				},
+				{
+					tab: "LESS",
+					code: `// Brands
+
+.row-block.brands {
+	padding: -10px 0 30px 0;
+	background: white;
+
+	h2 {
+		font-family: @heading-font;
+		font-weight: 600;
+
+		font-size: 26px;
+		@media @mobile {
+			text-align: center;
+			font-size: 22px;
+		}
+	}
+}
+
+.row.brands {
+	display: flex;
+	flex-wrap: wrap;
+	// border: 0.5px solid fade(white,15%);
+	justify-content: center;
+	a {
+		flex: 0 1 90px;
+		height: 70px;
+		margin:4px;
+		
+		@media @tablet {
+			flex: 1 1 70px;
+			height: 70px;
+		}
+		@media @mobile {
+			flex: 1 1 70px;
+			height: 70px;
+		}
+
+		figure {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all .5s ease;
+			border-radius: 5px;
+			// border: 1px solid fade(@primary-colour,15%);
+			background: @custom-colour1;
+
+			img {
+				height: 40px;
+				width: 40px;
+				transition: all .5s ease;
+				@media @tablet {
+					height: 40px;
+					width: 40px;
+				}
+				@media @mobile {
+					width: 40px;
+					height: 40px;
+				}
+			}
+			figcaption {
+				position: absolute;
+				margin: auto;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				height: 100%;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				z-index: -1;
+				opacity: 0;
+				color: white;
+				transition: all .5s ease;
+				font-size: 12px;
+				font-weight: bold;
+			}
+
+			&:hover {
+				background: @primary-colour;
+				img {
+					opacity: 0;
+				}
+				figcaption {
+					z-index: 1;
+					opacity: 1;
+				}
+			}
+		}
+	}
+}`
+				}
+			],
+      userguide: {
+        type: "text",
+        content: "Why am I moving?",
+      },
+    };
+  },
+});
+
 /***** 03. Body type *****/
+
+import SearchBodyType from './assets/screenshots/search-body-type.png';
 
 export const BodyType = () => ({
   name: "BodyType",
   components: {
     StoryBlock,
-    ModBodyType,
+    StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<ModBodyType />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${SearchBodyType}`,
       items: [
 				{
 					tab: "LESS",

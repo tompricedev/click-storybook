@@ -4,6 +4,7 @@ import { linkTo } from "@storybook/addon-links";
 import axios from "axios";
 
 import StoryBlock from "./Components/StoryBlock";
+import StoryPreviewImg from "./Components/StoryPreviewImg";
 
 /* Module imports for previews */
 import ModPicksMMP from "./Modules/ModPicksMMP";
@@ -17,291 +18,163 @@ export default {
 
 /***** 01. MMP *****/
 
+import PicksMMP from './assets/screenshots/picks-mmp.png';
+
 export const MakeModelPrice = () => ({
   name: "MakeModelPrice",
   components: {
     StoryBlock,
-    ModPicksMMP,
+    StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<ModPicksMMP />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${PicksMMP}`,
       items: [
 				{
 					tab: "HTML",
-					code: `<li id="pick_{PICK_SEQ}" class="touchcarousel-item">
-	<a href="{PICK_SLUG}" title="Used {PICK_MAKE} {PICK_MODEL} for sale in {v2_TOWN}"><img class="home-carousel-image lazy" alt="{PICK_TITLE}" {PICK_IMAGE_SRC} {PICK_IMAGE_PLACEHOLDER} {PICK_IMAGE_SRCSET}></a>
-
-	<div class="carousel-info">
-		<div class="carousel-info__title">{PICK_MAKE} {PICK_MODEL}</div>
-		<div class="carousel-info__variant">{PICK_YEAR} {PICK_VARIANT}</div>
-		<div class="carousel-info__price-block">
-			{PICK_PRICE}
-			<span class="monthly {FINANCE_STATUS}">From {PICK_MONTHLY_PAYMENT} p/m</span>
+					code: `<div class="featured-carousel__item featured-carousel__item--{PICK_SEQ} {PICK_YOUTUBE_CLASS}" id="featured-carousel__item--{PICK_SEQ}">
+		<div class="featured-carousel__img">
+			<a href="{PICK_SLUG}" title="Used {PICK_MAKE} {PICK_MODEL} for sale in {v2_TOWN}">
+				<img class="responsive-img lazy" alt="{PICK_TITLE}" {PICK_IMAGE_SRC} {PICK_IMAGE_PLACEHOLDER} {PICK_IMAGE_SRCSET} >
+			</a>
 		</div>
-		<div class="carousel-info__ctas">
-			<a href="{PICK_SLUG}" title="Used {PICK_YEAR} {PICK_MAKE} {PICK_MODEL} {PICK_VARIANT} for sale in {v2_TOWN}" class="btn">View this vehicle</a>
+		<div class="featured-carousel__details">
+			<em class="featured-carousel__title">{PICK_MAKE} {PICK_MODEL} {PICK_VARIANT}</em>
+			<em class="featured-carousel__price">{PICK_PRICE}</em>
+			
+			<div class="featured-carousel__buttons">
+				<a href="{PICK_SLUG}" title="Used {PICK_MAKE} {PICK_MODEL} for sale in {v2_TOWN}" class="btn btn--ghost">View this vehicle</a>
+			</div>
 		</div>
-	</div>
-</li>`
+	</div>`
 				},
 				{
 					tab: "LESS",
-					code: `.car-carousel {
-	background: white;
-	box-sizing: border-box;
-
-	.container,
-	.pad-10.overflow-hidden {
-		overflow: visible !important;
-		padding: 0px;
-	}
-
-}
-
-#hmpg-picks-carousel,
-#detail-similar-carousel {
-	position: relative;
-	height: auto;
-	width: 100%;
-
-	img {
-		object-fit: cover;
-		width: 100%;
-		height: 200px;
-	}
-
-	// img[src*="placeholder.svg"] {
-	//   height: 32px;
-	//   width: 32px;
-	// }
-
-	.touchcarousel-wrapper {
-		padding: 0;
-	}
-
-	.touchcarousel-container {
-		display: flex;
-		.flex-display(@display: flex);
-		.align-items(@align: flex-start);
-		padding: 0 0 10px 0;
-	}
-
-	.touchcarousel-item {
-		// flex: 0 0 300px;
-		.flex-grow(@grow: 0);
-		.flex-shrink(@shrink: 0);
-		.flex-basis(@width: 303px);
-		width: 303px;
-		margin-right: 20px;
-		position: relative;
-		transition: all 0.2s ease-in-out;
-		box-sizing: border-box;
-		background: white;
-		border: 1px solid darken(@body-colour,7%);
-		border-radius: 5px;
-		box-sizing: border-box;
-		overflow: hidden;
-
+					code: `.home-panel--latest-arrivals {
+		padding: 80px 0 0;
+		background: @primary-colour;
+	
 		@media @mobile {
-			.flex-basis(@width: 300px);
-			width: 300px;
+			padding: 30px 0 0;
 		}
-
-		
-
-		.carousel-info {
-
-			&__title {
-				display: block;
-				margin: 20px 20px 5px 20px;
-				font-family: @heading-font;
-				font-size: 20px;
-				line-height: 1.2;
-				font-weight: @heading-weight;
-				color: @heading-colour;
-				text-align: left;
-				overflow: hidden;
-				white-space: nowrap;
-				text-overflow: ellipsis;
-			}
-
-			&__variant {
-				display: block;
-				margin: 0 20px 10px 20px;
-				font-family: @heading-font;
-				font-size: 16px;
-				line-height: 1.2;
-				font-weight: normal;
-				color: @text-colour;
-				text-align: left;
-				overflow: hidden;
-				white-space: nowrap;
-				text-overflow: ellipsis;
-			}
-
-			&__price-block {
-				display: block;
-				margin: 10px 20px 20px;
-				font-family: @heading-font;
-				font-size: 20px;
-				line-height: 1.2;
-				font-weight: @heading-weight;
-				color: @heading-colour;
-
-				span.monthly {
-					display: block;
-					font-size: 14px;
-					font-weight: 400;
-				}
-			}
-
-			&__ctas {
-				margin: 0 20px 10px 20px;
-
-				a {
-					display: block;
-				}
-			}
+	
+		.container {
+			overflow: visible;
+		}
+	
+		.home-panel__title {
+			color: white !important;
 		}
 	}
-}
-
-.touchcarousel .touchcarousel-container {
-	position: relative;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	left: 0;
-}
-
-.touchcarousel .touchcarousel-wrapper {
-	position: relative;
-	overflow: hidden;
-	width: 100%;
-	height: 100%;
-}
-
-/* Arrow and Pagination Change */
-
-.tc-paging-container {
-	display: none;
-}
-
-.touchcarousel .arrow-holder {
-	height: 40px;
-	width: 40px;
-	position: absolute;
-	top: 54%;
-	display: block;
-	cursor: pointer;
-	z-index: 25;
-	text-decoration: none;
-	outline: none;
-	border: none;
-
-	&.left {
-		left: -50px;
+	
+	.featured-carousel {
+		margin: 0 -20px;
+		overflow: hidden;
+	
+		*:focus {
+			outline: none;
+		}
+	
+		&__item {
+			margin: 0 20px;
+			float: left;
+		}
+	
+		&__img {
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+	
+		&__details {
+			padding: 20px;
+			border: 1px solid @custom-colour2;
+			border-top: 0;
+			white-space: nowrap;
+	
+			em {
+				display: block;
+				margin-bottom: 10px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				color: white;
+			}
+		}
+	
+		&__buttons {
+			display: flex;
+			margin-top: 20px;
+			margin-right: -20px;
+			margin-bottom: -20px;
+	
+			a, button {
+				display: block;
+				flex: 1 1 180px;
+				margin-right: 20px;
+				margin-bottom: 20px;
+			}
+		}
 	}
-
-	&.right {
-		right: -50px;
-	}
-
-	@media handheld,
-	only screen and (max-width: 1700px) {
-		display: none;
-	}
-}
-
-/* arrow icons */
-.touchcarousel .arrow-icon {
-	width: auto;
-	height: auto;
-	background: none;
-	color: fade(black, 25%);
-	opacity: 1;
-	border-radius: 0;
-	cursor: pointer;
-	display: block;
-	font-family: 'ClickIcons';
-	font-style: normal;
-	font-weight: normal;
-	-webkit-font-smoothing: antialiased;
-	text-transform: none !important;
-	text-decoration: none;
-	outline: none;
-	border: none;
-	font-size: 55px;
-}
-
-.touchcarousel .arrow-icon.left:before {
-	.char(angle-left-r);
-	// content: '\f104';
-	display: block;
-	text-align: center;
-	height: 26px;
-	width: 26px;
-	line-height: 26px;
-	font-family: 'ClickIcons';
-}
-
-.touchcarousel .arrow-icon.right:before {
-	.char(angle-right-r);
-	// content: '\f105';
-	display: block;
-	text-align: center;
-	height: 26px;
-	width: 26px;
-	line-height: 26px;
-	font-family: 'ClickIcons';
-}
-
-.touchcarousel .arrow-holder:hover .arrow-icon {
-	color: @accent-colour;
-}
-
-.touchcarousel .arrow-holder.disabled {
-	cursor: default;
-	opacity: 0.1;
-}
-
-.touchcarousel .arrow-holder.disabled .arrow-icon {
-	cursor: default;
-}`
-				},
-				{
-					tab: "JS",
-					code: "JS goes brrrrrrrrr"
-				},
+	
+	.slick-arrow {
+		position: absolute;
+		top: 50%;
+		background: white;
+		color: @custom-colour3;
+		font-size: 26px;
+		line-height: 50px;
+		border: 1px solid @custom-colour2;
+	
+		@media @desktop {
+			display: none !important;
+		}
+	
+		&:hover {
+			color: @secondary-colour;
+		}
+	
+		&.slick-next {
+			left: 100%;
+			padding: 20px 20px 20px 10px;
+			border-radius: 0 999px 999px 0;
+		}
+	
+		&.slick-prev {
+			right: 100%;
+			padding: 20px 10px 20px 20px;
+			border-radius: 999px 0 0 999px;
+		}
+	}`
+				},				
 			],
-      userguide: {
-        type: "text",
-        content: "Why am I moving?",
-      },
     };
   },
 });
 
 /***** 02. Additional Info *****/
 
+import PicksAdditional from './assets/screenshots/picks-additional.png';
+
 export const AdditionalInfo = () => ({
   name: "AdditionalInfo",
   components: {
     StoryBlock,
-    ModAddInfo,
+    StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<ModAddInfo />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${PicksAdditional}`,
       items: [
 				{
 					tab: "HTML",
@@ -521,19 +394,22 @@ export const AdditionalInfo = () => ({
 
 /***** 03. Show Finance *****/
 
+import PicksShowFinance from './assets/screenshots/picks-show-finance.png';
+
 export const ShowFinance = () => ({
   name: "ShowFinance",
   components: {
     StoryBlock,
-    ModFinancePrice,
+    StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<ModFinancePrice />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${PicksShowFinance}`,
       items: [
 				{
 					tab: "HTML",
