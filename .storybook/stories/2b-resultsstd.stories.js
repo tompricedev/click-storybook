@@ -455,3 +455,188 @@ export const KeySellingPoints = () => ({
     };
   },
 });
+
+/***** 03. StdRefineButton *****/
+
+import stdRefineButton from './assets/screenshots/std-refine-button.png';
+
+export const StdRefineButton = () => ({
+  name: "StdRefineButton",
+  components: {
+    StoryBlock,
+  },
+  template: `
+		<StoryBlock :items="items" >
+			<img src="${stdRefineButton}" alt="${name}" style="max-width:100%; height: auto;" />
+		</StoryBlock>
+	`,
+  data() {
+    return {
+      items: [
+				{
+					tab: "HTML",
+					code: `<!-- Filters & Webzation -->
+<div class="res-filt res-filt--top">
+
+	<div class="res-filt__wrapper">
+
+		<div class="res-filt__mobile-filters">
+			<div class="mobile-filters">
+				<div class="mobile-filters__search">
+					<a id="mobile-open" class="btn"><i class="fal fa-sliders-h"></i> Refine Search</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="res-filt__showing mobile-hidden">
+			<div id="vehicle-search-showing-top">
+				<span class="hide-me">Showing </span><span><strong>{FIRST_RESULT} - {LAST_RESULT}</strong> <span class="hide-me">vehicles
+					</span>of <strong>{NUM_RESULTS}</strong></span>
+			</div>
+		</div>
+
+		<!-- Sort -->
+		<div class="res-filt__sortform">
+			<form class="alpha" name="sortform" id="sortform" action="/search_page.php?{RESULTS_QUERY_STRING}" method="GET">
+				<label class="alpha mobile-hidden tablet-hidden">Sort</label>
+				{SORT_SELECT}
+			</form>
+		</div>
+
+	</div>
+
+</div>
+<!-- // Filters & Webzation -->`
+				},
+				{
+					tab: "LESS",
+					code: `.results-layout {
+// .flex-display;
+
+// Swap search to the right hand side
+// .flex-direction(@direction: row-reverse);
+
+&__search {
+	position: absolute;
+	left: -320px;
+	height: calc(~'100vh - 43px');
+	width: 320px;
+	// .flex-grow(@grow: 0);
+	// .flex-shrink(@shrink: 0);
+	// .flex-basis(@width: 320px);
+	padding: 20px;
+	background: darken(@body-colour, 4%);
+	z-index: 10;
+	box-shadow: 0 5px 10px fade(black,15%);
+	box-sizing: border-box;
+	transition: left .2s linear;
+
+	&.stick {
+		position: fixed;
+		top: 43px;
+
+		@media @tablet {
+			top: 37px;
+		}
+
+		&.at-foot {
+			position: absolute;
+		}
+	}
+
+	@media @lap {
+		// .flex-basis(@width: 260px);
+	}
+
+	@media @tablet {
+		height: calc(~'100vh - 37px');
+		// .flex-basis(@width: 220px);
+		padding: 10px;
+	}
+
+	@media @mobile {
+		display: none;
+		position: fixed;
+		top: 50px;
+		height: calc(~'100vh - 50px');
+		width: 100%;
+		margin-top: 0;
+		padding: 20px;
+		overflow: scroll;
+		z-index: 9999;
+	}
+
+	#mobile-close {
+		display: none;
+	}
+
+	.button-group--search {
+		display: none !important;
+	}
+
+	&.toggled {
+		display: block;
+		left: 0;
+
+		.button-group--search {
+			display: block !important;
+		}
+
+		#mobile-close {
+			.flex-display(@display: flex);
+			.align-items(@align: center);
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			padding: 5px 5px;
+			background: darken(@body-colour,8%);
+			color: @custom-colour4;
+			border-radius: 99px;
+			font-size: 14px;
+
+			@media @mobile {
+				top: 10px;
+				right: 20px;
+			}
+
+			i {
+				margin-left: 5px;
+				padding: 5px 8px;
+				background: fade(black,10%);
+				color: @custom-colour4;
+				border-radius: 9999px;
+				font-size: 10px;
+			}
+		}
+	}
+}
+
+&__listings {
+	.flex-grow(@grow: 1);
+	.flex-shrink(@shrink: 1);
+	.flex-basis(@width: auto);
+	width: auto;
+	background: @body-colour;
+}
+}`
+				},
+				{
+					tab: "JS",
+					code: `  // Toggles for refine search
+
+$('#mobile-open').click(function () {
+	$(".results-layout__search").toggleClass("toggled");
+});
+
+$('#mobile-close').click(function () {
+	$(".results-layout__search").toggleClass("toggled");
+});`
+				},
+			],
+      userguide: {
+        type: "text",
+        content: "Why am I moving?",
+      },
+    };
+  },
+});

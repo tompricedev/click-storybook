@@ -4,28 +4,32 @@ import { linkTo } from "@storybook/addon-links";
 import axios from "axios";
 
 import StoryBlock from "./Components/StoryBlock";
+import StoryPreviewImg from "./Components/StoryPreviewImg";
 
 /* Module imports for previews */
-import uxDtDefault from "./assets/screenshots/ux-dt-default.png";
 
 export default {
-  title: "Details/UX",
+	title: "Details/UX",
 };
 
 /***** 01. DetailsUX *****/
 
+import uxDtDefault from "./assets/screenshots/ux-dt-default.png";
+
 export const DetailsUX = () => ({
   name: "DetailsUX",
   components: {
-    StoryBlock,
+		StoryBlock,
+		StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<img src="${uxDtDefault}" alt="" style="max-width: 100%; height: auto;" />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${uxDtDefault}`,
       items: [
 				{
 					tab: "HTML",
@@ -1808,15 +1812,17 @@ import uxDtHilton from './assets/screenshots/ux-dt-hilton.png';
 export const DetailsUXHilton = () => ({
   name: "DetailsUXHilton",
   components: {
-    StoryBlock,
+		StoryBlock,
+		StoryPreviewImg
   },
   template: `
 		<StoryBlock :items="items" >
-			<img src="${uxDtHilton}" alt="" style="max-width: 100%; height: auto;" />
+			<StoryPreviewImg :preview="preview" />
 		</StoryBlock>
 	`,
   data() {
     return {
+			preview: `${uxDtHilton}`,
       items: [
 				{
 					tab: "HTML",
